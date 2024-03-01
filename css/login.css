@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(27, 23, 23, 0.499);
+}
+a #container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 36%;
+  height: 70%;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(18, 16, 16, 0.595);
+}
+
+#login {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  font-size: 25px;
+  font-family: "Segoe UI";
+  color: whitesmoke;
+}
+
+#logo {
+}
+
+form {
+  width: 70%;
+  font-family: "Open Sans";
+  font-weight: 100;
+}
+form div input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+form div label {
+  cursor: pointer;
+  color: gainsboro;
+}
+
+.spacer {
+  height: 5px;
+}
+
+form input#login_button {
+  display: flex;
+  margin: 10px auto;
+}
+
+form input:focus {
+  outline: none;
+}
+button#login_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto;
+  height: 40px;
+  width: 150px;
+  background-color: rgba(171, 179, 182, 0.923);
+  border: 1px solid;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+#register_href {
+  text-decoration: none;
+  color: rgb(215, 102, 102);
+}
+
+a#register_href:hover {
+  text-decoration: underline;
+  width: 100%;
+}
+
+@media screen and (max-width: 1155px) {
+  #container {
+    width: 30%;
+    height: 65%;
+    margin: 0px;
+    padding: 10px;
+    background-color: rgba(18, 16, 16, 0.595);
+  }
+  #login {
+    padding: 5px;
+    font-size: 15px;
+    font-family: "Segoe UI";
+    color: whitesmoke;
+  }
+  form div label.textfield_label {
+    font-size: 15px;
+  }
+  input {
+    font-size: 15px;
+  }
+  .spacer {
+    height: 2px;
+  }
+  br {
+    display: none;
+  }
+  form div input#username,
+  #password {
+    padding: 15px;
+    margin: 0px;
+    height: 15px;
+    font-size: 12px;
+  }
+  button#login_button {
+    height: 33px;
+    width: 100px;
+    font-size: 14px;
+  }
+  #textfield_container {
+    width: 250px;
+  }
+  p {
+    font-size: 10px;
+  }
+  form #newSpacer {
+    margin: -10px;
+    /* background-color: red; */
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #container {
+    width: 50%;
+  }
+  button#login_button {
+    height: 35px;
+    width: 100px;
+    font-size: 14px;
+  }
+  .register {
+    font-size: 1009px;
+    /* font-weight: 900; */
+  }
+  body div form p {
+    font-size: 100px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+  form div label #register {
+    font-size: 2px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .textfield_label {
+    font-size: 123px;
+  }
+}
+
+@media screen and (max-width: 285px) {
+  button#login_button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  body {
+    overflow: auto;
+  }
+}

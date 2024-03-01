@@ -1,0 +1,82 @@
+*{
+  margin: 0px;
+  padding: 0px;
+
+}
+
+body{
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(27, 23, 23, 0.499);
+  font-family: op;
+}
+
+#container{
+  max-width: 100%;
+  padding: 50px;
+  height: 700px;
+  width: 400px;
+  background-color: rgba(18, 16, 16, 0.595);
+  text-align: center;
+}
+
+form{
+  font-family: 'Open Sans';
+}
+
+#textForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  text-align: start;
+  margin: 0px auto;
+
+}
+
+#dropdown{
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+form div label, h2{
+  color: gainsboro;
+}
+
+form div input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"]{
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+#row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.column {
+  width: 100%;
+}
+
+/* #row select,
+#row input[type="date"] {
+  width: 100%; 
+}  */
+
+#checkbox {
+  height: 20px;
+}
+
