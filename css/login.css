@@ -11,7 +11,7 @@ body {
   height: 100vh;
   background-color: rgba(27, 23, 23, 0.499);
 }
-a #container {
+#container {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -34,6 +34,9 @@ a #container {
 }
 
 #logo {
+  max-width: 100%;
+  /* box-shadow: ; */
+  mix-blend-mode:multiply;
 }
 
 form {
@@ -182,5 +185,22 @@ a#register_href:hover {
 @media screen and (max-height: 600px) {
   body {
     overflow: auto;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    overflow: auto;
+  }
+  #logo{
+    display: none;
+  }
+}
+@media screen and (max-height: 700px) {
+  body {
+    overflow: auto;
+  }
+  #logo{
+    display: none;
   }
 }
