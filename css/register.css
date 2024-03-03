@@ -1,7 +1,6 @@
 *{
   margin: 0px;
   padding: 0px;
-
 }
 
 body{
@@ -11,6 +10,14 @@ body{
   align-items: center;
   background-color: rgba(27, 23, 23, 0.499);
   font-family: op;
+  color: gainsboro;
+
+}
+
+#register{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
 }
 
 #container{
@@ -47,6 +54,7 @@ form{
 
 form div label, h2{
   color: gainsboro;
+  margin-bottom: 7px;
 }
 
 form div input[type="text"],
@@ -60,6 +68,7 @@ input[type="date"]{
   font-size: 15px;
   font-weight: 500;
   box-sizing: border-box;
+  margin-bottom: 100px
 }
 
 #row {
