@@ -3,21 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Register</title>
   <link rel="stylesheet" href="../css/register.css">
 </head>
 <body>
   <div id="container">
     <form action="">
       <div id="textForm">
+        <!-- ! no uppercase for name attributes -->
         <h3 id="register">Register</h3>
+
+        <!-- ? Username -->
+        <label for="username">User Name:</label>
+        <input type="text" name="username" id="textForm" placeholder="Enter User Name">
+        <div id="spacer"></div>
+        <!-- ? Password -->
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="textForm" placeholder="Enter Password">
+        <div id="spacer"></div>
+
         <!-- ! Firstname -->
         <label for="fname">First Name:</label>
         <input type="text" name="fname" id="textForm" placeholder="Enter first name">
-        <label for="fname">First Name:</label>
-        <input type="text" name="fname" id="textForm" placeholder="Enter first name">
-        <label for="fname">First Name:</label>
-        <input type="text" name="fname" id="textForm" placeholder="Enter first name">
+        <div id="spacer"></div>
+        <!-- ! Middlename -->
+        <label for="mname">Middle Name:</label>
+        <input type="text" name="mname" id="textForm" placeholder="Enter first name">
+        <div id="spacer"></div>
+        <!-- ! Lastname -->
+        <label for="lname">Last Name:</label>
+        <input type="text" name="lname" id="textForm" placeholder="Enter first name">
+        <div id="spacer"></div>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="textForm" placeholder="Enter first name">
+        <div id="spacer"></div>
+
+        <div id="row">
+          <div id="">
+            <label for="birthdate">Birthdate</label>
+            <input type="date" name="birthdate" id="column" placeholder="asd">
+          </div>
+          <div style="width: 20px;"></div>
+          <div>
+            <label for="gender">Gender</label>
+            <select name="gender" id="" value="" title="Gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Prefer not to say</option>
+            </select>
+          </div>
+        </div>
+        <div style="height: 20px;"></div>
+        <div id="privacyStmt">
+          <input type="checkbox" id="costum_checkbox" name="costum_checkbox">
+          <label for="costum_checkbox">I have read and agree to the 
+            <a href="terms-and-conditions.html" target="_blank">terms and conditions</a>
+            and
+            <a href="privacy-policy.html" target="_blank">privacy policy</a>.
+          </label>
+        </div>
+        <div id="spacer"></div>
+
+        <button id="register_button">Register</button>
+        <a id="login_href" href="../index.html">Already have an account?</a>
       </div>
     </form>
   </div>
