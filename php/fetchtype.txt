@@ -1,0 +1,26 @@
+mysqli
+
+$sql = "SELECT * FROM users WHERE id = 1";
+$result = $conn->query($sql);
+
+if ($result) {
+    $row = $result->fetch_assoc();
+    // Process the data in $row
+} else {
+    // Handle error
+}
+
+
+pdo
+
+$sql = "SELECT * FROM users WHERE id = ?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([1]); // Replace 1 with the appropriate value
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if ($row) {
+    // Process the data in $row
+} else {
+    // Handle error
+}
+
