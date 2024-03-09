@@ -8,7 +8,7 @@
 </head>
 <body>
   <div id="container">
-    <form action="">
+    <form action="../php/register.php" method="post">
       <div id="textForm">
         <!-- ! no uppercase for name attributes -->
         <h3 id="register">Register</h3>
@@ -21,7 +21,7 @@
         <label for="password">Password:</label>
         <input type="password" name="password" id="textForm" placeholder="Enter Password">
         <div id="spacer"></div>
-
+        
         <!-- ! Firstname -->
         <label for="fname">First Name:</label>
         <input type="text" name="fname" id="textForm" placeholder="Enter first name">
@@ -34,18 +34,20 @@
         <label for="lname">Last Name:</label>
         <input type="text" name="lname" id="textForm" placeholder="Enter first name">
         <div id="spacer"></div>
-
+        <!-- ! email -->
         <label for="email">Email:</label>
         <input type="email" name="email" id="textForm" placeholder="Enter first name">
         <div id="spacer"></div>
 
         <div id="row">
           <div id="">
+            <!-- ! birhtdate -->
             <label for="birthdate">Birthdate</label>
             <input type="date" name="birthdate" id="column" placeholder="asd">
           </div>
           <div style="width: 20px;"></div>
           <div>
+            <!-- ! gender -->
             <label for="gender">Gender</label>
             <select name="gender" id="" value="" title="Gender">
               <option value="Male">Male</option>
@@ -56,7 +58,7 @@
         </div>
         <div style="height: 20px;"></div>
         <div id="privacyStmt">
-          <input type="checkbox" id="costum_checkbox" name="costum_checkbox">
+          <input type="checkbox" id="costum_checkbox" name="costum_checkbox" required>
           <label for="costum_checkbox">I have read and agree to the 
             <a href="terms-and-conditions.html" target="_blank">terms and conditions</a>
             and
@@ -64,11 +66,12 @@
           </label>
         </div>
         <div id="spacer"></div>
-
         <button id="register_button">Register</button>
-        <a id="login_href" href="../index.html">Already have an account?</a>
       </div>
+      <a href="../index.php" style="display: flex; justify-self: start;">Already have an account?</a>
     </form>
   </div>
 </body>
 </html>
+
+
