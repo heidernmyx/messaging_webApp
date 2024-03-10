@@ -47,7 +47,7 @@ form{
   font-family: 'Open Sans';
 }
 
-#textForm{
+.textForm{
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -170,15 +170,15 @@ a:hover {
   border-radius: 10px;
 }
 
-.close{
+.close_button{
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close_button:hover,
+.close_button:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
