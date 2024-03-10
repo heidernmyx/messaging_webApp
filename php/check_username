@@ -1,0 +1,26 @@
+<?php
+// Assuming you have established a database connection
+
+// Check if the username parameter is set in the request
+if(isset($_POST['username'])) {
+    // Retrieve the username from the AJAX request
+    $username = $_POST['username'];
+
+    // Prepare and execute a database query to check if the username exists
+    $query = "SELECT * FROM users WHERE username = ?";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$username]);
+
+    // Check if the username already exists in the database
+    if($stmt->rowCount() > 0) {
+        // Username already exists, return a response indicating it's taken
+        echo json_encode(['status' => 'taken']);
+    } else {
+        // Username is available, return a response indicating it's available
+        echo json_encode(['status' => 'available']);
+    }
+} else {
+    // If username parameter is not set in the request, return an error response
+    echo json_encode(['error' => 'Username parameter is missing']);
+}
+?>

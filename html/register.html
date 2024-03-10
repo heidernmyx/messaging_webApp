@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
   <link rel="stylesheet" href="../css/register.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/js/register.js"></script>
 </head>
 <body>
   <div id="container">
@@ -21,7 +23,7 @@
         <label for="password">Password:</label>
         <input type="password" name="password" id="textForm" placeholder="Enter Password">
         <div id="spacer"></div>
-        
+
         <!-- ! Firstname -->
         <label for="fname">First Name:</label>
         <input type="text" name="fname" id="textForm" placeholder="Enter first name">
@@ -66,10 +68,25 @@
           </label>
         </div>
         <div id="spacer"></div>
-        <button id="register_button">Register</button>
+        <button type="submit" id="register_button">Register</button>
       </div>
       <a href="../index.php" style="display: flex; justify-self: start;">Already have an account?</a>
+      <div class="modal">
+        <div class="modal_content">
+          <h3>Registered Successfully!</h3>
+          <span id="close" class="close">&times;</span>
+          <div id="img_container">
+            <div id="no_background">
+            </div>
+          </div>
+          <img id="modal_gif" src="../assets/images/cat-nyan-cat.gif" alt="modal_gif">
+          <p>Proceeding to login...</p>
+        </div>
+      </div>
     </form>
+    
+  </div>
+  
   </div>
 </body>
 </html>

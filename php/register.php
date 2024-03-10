@@ -38,32 +38,30 @@ $role = 'user';
 
 
 $sql = "INSERT INTO `tbl_profile`(
-  `user_id`, 
-  `fname`, 
-  `mname`, 
-  `lname`, 
-  `gender`, 
-  `profile_path`, 
-  `bio`) 
-  VALUES (
-
-    :user_id,
-    :fname,
-    :mname,
-    :lname,
-    :gender,
-    '',
-    :bio,
-    :role)";
+  `user_id`,
+  `fname`,
+  `mname`,
+  `lname`,
+  `gender`,
+  `birthdate`
+)
+VALUES(
+  :user_id,
+  :fname,
+  :mname,
+  :lname,
+  :gender,
+  :birthdate
+)";
 
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 $stmt->bindParam(':fname', $fname, PDO::PARAM_STR);
-$stmt->bindParam(':mname', $user_id, PDO::PARAM_STR);
-$stmt->bindParam(':lname', $user_id, PDO::PARAM_STR);
-$stmt->bindParam(':gender', $user_id, PDO::PARAM_STR);
-$stmt->bindParam(':birthdate', $user_id, PDO::PARAM_STR);
-$stmt->bindParam(':role', $user_id, PDO::PARAM_STR);
+$stmt->bindParam(':mname', $mname, PDO::PARAM_STR);
+$stmt->bindParam(':lname', $lname, PDO::PARAM_STR);
+$stmt->bindParam(':gender', $gender, PDO::PARAM_STR);
+$stmt->bindParam(':birthdate', $birthdate, PDO::PARAM_STR);
+// $stmt->bindParam(':role', $role, PDO::PARAM_STR);
 $stmt->execute();
 
 echo '
