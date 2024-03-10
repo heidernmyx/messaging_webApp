@@ -149,7 +149,7 @@ a:hover {
 }
 
 .modal{
-  /* display: none; */
+  display: none;
   position: fixed;
   left: 0;
   top: 0;
@@ -160,7 +160,7 @@ a:hover {
 }
 
 .modal_content{
-  
+  display: none;
   background-color: #503e3e; /* White background */
   margin: 10% auto; /* 15% from the top and centered */
   padding: 20px;

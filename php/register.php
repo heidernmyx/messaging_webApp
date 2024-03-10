@@ -19,7 +19,7 @@ $stmt =$conn->prepare($sql);
 $stmt->bindParam(':username', $username_input, PDO::PARAM_STR);
 $stmt->bindParam(':password', $password_input, PDO::PARAM_STR);
 $stmt->bindParam(':email_address', $email, PDO::PARAM_STR);
-$stmt->execute();
+// $stmt->execute();
 
 $user_id = $conn->lastInsertId();
 
@@ -62,7 +62,7 @@ $stmt->bindParam(':lname', $lname, PDO::PARAM_STR);
 $stmt->bindParam(':gender', $gender, PDO::PARAM_STR);
 $stmt->bindParam(':birthdate', $birthdate, PDO::PARAM_STR);
 // $stmt->bindParam(':role', $role, PDO::PARAM_STR);
-$stmt->execute();
+// $stmt->execute();
 
 echo '
 <script>alert("Registered successfully, going back to login");</script>
