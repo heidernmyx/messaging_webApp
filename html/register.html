@@ -5,30 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
   <link rel="stylesheet" href="../css/register.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
   <script src="../js/register.js" defer></script>
 
 
 </head>
 <body>
   <div id="container">
-    <form action="../php/register.php" method="post">
+    <form id="regForm" action="../php/register.php" method="post">
       <div class="textForm">
         <!-- ! no uppercase for name attributes -->
         <h3 id="register">Register</h3>
 
         <!-- ? Username -->
         <label for="username">User Name:</label>
-        <input type="text" name="username" class="textForm" placeholder="Enter User Name" required>
+        <input type="text" name="username" class="textForm" placeholder="Enter User Name" >
         <div id="spacer"></div>
         <!-- ? Password -->
         <label for="password">Password:</label>
-        <input type="password" name="password" class="textForm" placeholder="Enter Password" required>
+        <input type="password" name="password" class="textForm" placeholder="Enter Password" >
         <div id="spacer"></div>
 
         <!-- ! Firstname -->
         <label for="fname">First Name:</label>
-        <input type="text" name="fname" class="textForm" placeholder="Enter first name" required>
+        <input type="text" name="fname" class="textForm" placeholder="Enter first name" >
         <div id="spacer"></div>
         <!-- ! Middlename -->
         <label for="mname">Middle Name:</label>
@@ -36,24 +36,24 @@
         <div id="spacer"></div>
         <!-- ! Lastname -->
         <label for="lname">Last Name:</label>
-        <input type="text" name="lname" class="textForm" placeholder="Enter first name" required>
+        <input type="text" name="lname" class="textForm" placeholder="Enter first name" >
         <div id="spacer"></div>
         <!-- ! email -->
         <label for="email">Email:</label>
-        <input type="email" name="email" class="textForm" placeholder="Enter first name" required>
+        <input type="email" name="email" class="textForm" placeholder="Enter first name" >
         <div id="spacer"></div>
 
         <div id="row">
           <div id="">
             <!-- ! birhtdate -->
             <label for="birthdate">Birthdate</label>
-            <input type="date" name="birthdate" id="column" placeholder="asd" required>
+            <input type="date" name="birthdate" id="column" placeholder="asd" >
           </div>
           <div style="width: 20px;"></div>
           <div>
             <!-- ! gender -->
             <label for="gender">Gender</label>
-            <select name="gender" id="" value="" title="Gender" required>
+            <select name="gender" id="" value="" title="Gender" >
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="Other">Prefer not to say</option>
@@ -62,7 +62,7 @@
         </div>
         <div style="height: 20px;"></div>
         <div id="privacyStmt">
-          <input type="checkbox" id="costum_checkbox" name="costum_checkbox" required>
+          <input type="checkbox" id="costum_checkbox" name="costum_checkbox" >
           <label for="costum_checkbox">I have read and agree to the 
             <a href="terms-and-conditions.html" target="_blank">terms and conditions</a>
             and
@@ -85,7 +85,7 @@
           <img id="modal_gif" src="../assets/images/cat-nyan-cat.gif" alt="modal_gif">
           <p>Proceeding to login...</p>
         </div>
-      </div>
+      </div> 
     </form>
   </div>
   </div>

@@ -65,11 +65,11 @@ $stmt->bindParam(':birthdate', $birthdate, PDO::PARAM_STR);
 // $stmt->execute();
 
 echo '
-<script>alert("Registered successfully, going back to login");</script>
+
 ';
 
-header ('Location: ../index.html');
+// header ('Location: ../index.html');
 
-?>
+
 
 
