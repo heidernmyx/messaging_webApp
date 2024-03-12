@@ -1,13 +1,8 @@
 
 $(document).ready(function() {
   $('#loginForm').submit(function(event) {
-    // Prevent default form submission
     event.preventDefault();
-
-    // Serialize form data
     var formData = $(this).serialize();
-
-    // Send AJAX request
     $.ajax({
       type: 'POST',
       url: 'php/login.php', // URL of your backend PHP script
@@ -18,7 +13,6 @@ $(document).ready(function() {
         } else {
           console.log(false);
           if ($(window).width() < 1155) {
-            // Apply styles for small screens
             $('#wrong_pass').css({
               'margin-top': '10px',
               'margin-bottom': '20px',

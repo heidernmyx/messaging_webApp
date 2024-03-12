@@ -7,21 +7,27 @@ $password_input = $_POST['password'];
 $email = $_POST['email'];
 
 
-$sql= "SELECT`username` 
-      FROM `tbl_accounts`
-      WHERE username = :username";
+$sql= "SELECT username, email_address 
+      FROM tbl_accounts
+      WHERE username = :username
+      OR 
+      email_address = :email";
+
 
 $stmt= $conn->prepare($sql);
-
-
 $stmt->bindParam(':username', $username_input);
-
+$stmt->bindParam(':email', $email);
 $stmt->execute();
-
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if ($username_input == $result['username']) {
-    echo "unavailable";
+if ($username_input == $result['username'] && $email == $result['email_address']) {
+  echo "Username and Email is already taken!";
+}
+else if ($username_input == $result['username']) {
+  echo "Username is unavailable";
+}
+else if ($email == $result['email_address']) {
+  echo "Email is already registered";
 }
 else{
   $sql = "INSERT INTO `tbl_accounts`(
@@ -38,16 +44,7 @@ else{
   $stmt->execute();
 }
 
-
-
 $user_id = $conn->lastInsertId();
-
-
-
-// echo '
-// <script>
-//   console.log($user_id);
-// </script>';
 
 
 $fname = $_POST['fname'];
@@ -87,7 +84,4 @@ $stmt->execute();
 
 // header ('Location: ./index.html');
 ?>
-
-
-
 

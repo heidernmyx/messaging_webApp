@@ -26,30 +26,40 @@ spanClass.addEventListener("click", () => {
 // const response = document.createElement('i');
 // response.innerHTML = "Username is already taken";
 
-// $(document).ready(function() {
-//   $('#regForm').submit(function(event) {
-//     event.preventDefault();
-//     // Serialize form data
-//     var formData = $(this).serialize();
-//     $.ajax({
-//       type: 'POST',
-//       url: '../php/register.php', // URL of your backend PHP script
-//       data: formData,
-//       success: function(response) {
-//         if(response === "unavailable") {
-//           $('#prompt').html(response);
-//           console.log(true);
-//           console.log('unavailable');
-//         }
-//         else{
-//           console.log(response);
-//           console.log(false);
-//         }
-//       },
-//       error: function(xhr, status, error) {
-//         // Handle error
-//         console.error(xhr.responseText);
-//       }
-//     });
-//   });
-// });
+$(document).ready(function() {
+  $('#regForm').submit(function(event) {
+    event.preventDefault();
+    var formData = $(this).serialize();
+    $.ajax({
+      type: 'POST',
+      url: '../php/register.php', // URL of your backend PHP script
+      data: formData,
+      success: function(response) {
+        if(response === "Username and Email is already taken!") {
+          $('#prompt').html("Username and Email is already taken!");
+          $('#prompt').css({
+            'color': 'gainsboro',
+            'font-weight': 'bold',
+            'margin': '10px',
+          })
+          console.log(response);
+          console.log(true);
+        }
+        else if (response === "Username is unavailable") {
+          console.log(response);
+        }
+        else if (response === "Email is already registered") {
+          console.log(response);
+        }
+        else{
+          console.log(response);
+          console.log("wani gana");
+        }
+      },
+      error: function(xhr, status, error) {
+        // Handle error
+        console.error(xhr.responseText);
+      }
+    });
+  });
+});
