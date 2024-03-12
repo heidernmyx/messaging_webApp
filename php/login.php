@@ -18,10 +18,10 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if ($result) {
   if($username_input == $result['username'] && $password_input == $result['password']) {
-    echo "login successfully";
+    echo "success";
   }
 } else {
-    echo "Invalid username or password";
+    echo "Incorrect Username or Password";
 }
 
 

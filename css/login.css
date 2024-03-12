@@ -144,6 +144,9 @@ a#register_href:hover {
     margin: -10px;
     /* background-color: red; */
   }
+  form div#wrong_pass {
+    font-size: 10px; /* Example change for smaller screens */
+}
 }
 
 @media screen and (max-width: 400px) {
@@ -174,6 +177,7 @@ a#register_href:hover {
   .textfield_label {
     font-size: 123px;
   }
+  
 }
 
 @media screen and (max-width: 285px) {
