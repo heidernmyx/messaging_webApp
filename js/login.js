@@ -1,5 +1,3 @@
-const response = document.createElement("i");
-response.innerHTML = "Incorrect Username or Password";
 
 $(document).ready(function() {
   $('#loginForm').submit(function(event) {

@@ -2,31 +2,52 @@
 
 include '../include/connection.php';
 
-
 $username_input = $_POST['username'];
 $password_input = $_POST['password'];
 $email = $_POST['email'];
 
 
-$sql = "INSERT INTO `tbl_accounts`(
-  `username`, 
-  `password`, 
-  `email_address`) 
-  VALUES (:username,:password,:email_address)";
+$sql= "SELECT`username` 
+      FROM `tbl_accounts`
+      WHERE username = :username";
 
-$stmt =$conn->prepare($sql);
-// bindparam(value, var, pdo_type)
-$stmt->bindParam(':username', $username_input, PDO::PARAM_STR);
-$stmt->bindParam(':password', $password_input, PDO::PARAM_STR);
-$stmt->bindParam(':email_address', $email, PDO::PARAM_STR);
-// $stmt->execute();
+$stmt= $conn->prepare($sql);
+
+
+$stmt->bindParam(':username', $username_input);
+
+$stmt->execute();
+
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if ($username_input == $result['username']) {
+    echo "unavailable";
+}
+else{
+  $sql = "INSERT INTO `tbl_accounts`(
+    `username`, 
+    `password`, 
+    `email_address`) 
+    VALUES (:username,:password,:email_address)";
+  
+  $stmt =$conn->prepare($sql);
+  // bindparam(value, var, pdo_type)
+  $stmt->bindParam(':username', $username_input, PDO::PARAM_STR);
+  $stmt->bindParam(':password', $password_input, PDO::PARAM_STR);
+  $stmt->bindParam(':email_address', $email, PDO::PARAM_STR);
+  $stmt->execute();
+}
+
+
 
 $user_id = $conn->lastInsertId();
 
-echo '
-<script>
-  console.log($user_id);
-</script>';
+
+
+// echo '
+// <script>
+//   console.log($user_id);
+// </script>';
 
 
 $fname = $_POST['fname'];
@@ -62,13 +83,10 @@ $stmt->bindParam(':lname', $lname, PDO::PARAM_STR);
 $stmt->bindParam(':gender', $gender, PDO::PARAM_STR);
 $stmt->bindParam(':birthdate', $birthdate, PDO::PARAM_STR);
 // $stmt->bindParam(':role', $role, PDO::PARAM_STR);
-// $stmt->execute();
-
-echo '
-
-';
+$stmt->execute();
 
 // header ('Location: ./index.html');
+?>
 
 
 
