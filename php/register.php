@@ -20,16 +20,11 @@ $stmt->bindParam(':email', $email);
 $stmt->execute();
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if ($username_input == $result['username'] && $email == $result['email_address']) {
-  echo "Username and Email is already taken!";
-}
-else if ($username_input == $result['username']) {
-  echo "Username is unavailable";
-}
-else if ($email == $result['email_address']) {
-  echo "Email is already registered";
-}
-else{
+
+if (empty($result)) {
+  // Query returned nothing, username and email are available
+  echo "Username and Email are available for registration!";
+
   $sql = "INSERT INTO `tbl_accounts`(
     `username`, 
     `password`, 
@@ -42,7 +37,23 @@ else{
   $stmt->bindParam(':password', $password_input, PDO::PARAM_STR);
   $stmt->bindParam(':email_address', $email, PDO::PARAM_STR);
   $stmt->execute();
+} 
+else{
+  if ($username_input == $result['username'] && $email == $result['email_address']) {
+    echo "Username and Email is already taken!";
+    exit();
+  }
+  else if ($username_input == $result['username']) {
+    echo "Username is unavailable";
+    exit();
+  }
+  else if ($email == $result['email_address']) {
+    echo "Email is already registered";
+    exit();
+  }
 }
+
+
 
 $user_id = $conn->lastInsertId();
 

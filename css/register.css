@@ -162,7 +162,7 @@ a:hover {
 .modal_content{
   display: none;
   background-color: #503e3e; /* White background */
-  margin: 10% auto; /* 15% from the top and centered */
+  margin: 10% auto; 
   padding: 20px;
   border: 1px solid #888;
   width: 40%; /* 80% width */

@@ -5,7 +5,6 @@ spanClass.addEventListener("click", () => {
 });
 
 
-// modal.style.display = "block";
 // document.querySelector('.modal_content').style.display = "block";
 
 
@@ -13,18 +12,13 @@ spanClass.addEventListener("click", () => {
   const register_button = document.getElementById('register_button');
   register_button.addEventListener("click", () =>{
     
-    setTimeout(() => {
-      // window.open('index.html');
-      // proceed to login page after register and showing modal
-      // window.location.href = "../index.html";
-    }, 3000);
+    
   });
   // const show_modal = () => {
     
   // }
 
-// const response = document.createElement('i');
-// response.innerHTML = "Username is already taken";
+
 
 $(document).ready(function() {
   $('#regForm').submit(function(event) {
@@ -35,26 +29,36 @@ $(document).ready(function() {
       url: '../php/register.php', // URL of your backend PHP script
       data: formData,
       success: function(response) {
+        // response = response.toString().slice(0,-2);
+        $('#prompt').html('');
+
+        // ? return to stop terminate ajax req
         if(response === "Username and Email is already taken!") {
-          $('#prompt').html("Username and Email is already taken!");
-          $('#prompt').css({
-            'color': 'gainsboro',
-            'font-weight': 'bold',
-            'margin': '10px',
-          })
-          console.log(response);
-          console.log(true);
+          prompt(response);
+          return;
         }
         else if (response === "Username is unavailable") {
-          console.log(response);
+          prompt(response);
+          return;
         }
         else if (response === "Email is already registered") {
-          console.log(response);
+          prompt(response);
+          return;
         }
         else{
-          console.log(response);
-          console.log("wani gana");
+          $('.modal').css({
+            'display': 'block'
+          }),
+          $('.modal_content').css({
+            'display': 'block'
+          }),
+          
+          setTimeout(() => {
+            window.location.href = "../index.html";
+            // proceed to login page after register and showing modal
+          }, 3000);
         }
+        
       },
       error: function(xhr, status, error) {
         // Handle error
@@ -63,3 +67,14 @@ $(document).ready(function() {
     });
   });
 });
+//call method upon submit
+        // ? response param here come from if and elifs
+const prompt = (response) => {
+  document.getElementById('prompt').innerHTML = "";
+  $('#prompt').html(response);
+  $('#prompt').css({
+    'color': 'gainsboro',
+    'font-weight': 'bold',
+    'margin': '10px',
+  })
+}
