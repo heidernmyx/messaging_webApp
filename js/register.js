@@ -7,19 +7,6 @@ spanClass.addEventListener("click", () => {
 
 // document.querySelector('.modal_content').style.display = "block";
 
-
-
-  const register_button = document.getElementById('register_button');
-  register_button.addEventListener("click", () =>{
-    
-    
-  });
-  // const show_modal = () => {
-    
-  // }
-
-
-
 $(document).ready(function() {
   $('#regForm').submit(function(event) {
     event.preventDefault();
