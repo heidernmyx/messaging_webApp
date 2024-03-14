@@ -9,7 +9,8 @@ $(document).ready(function() {
       data: formData,
       success: function(response) {
         if (response === "success") {
-          console.log(true);
+          // console.log(window.locatioh.href);
+          window.location.href = 'html/dashboard.html';
         } else {
           console.log(false);
           if ($(window).width() < 1155) {

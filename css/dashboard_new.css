@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    font-family: 'Open Sans';
+    overflow: hidden;
+}
+.friends_column{
+    display: flex;
+    height: 100vh;
+    width: 30vw;
+    padding: 10px;
+    margin: 0px;
+    flex-direction: column;
+    background-color: blue;
+    border-right: 2px solid black;
+
+
+    .search_container{
+        background-color: aqua;
+        width: 15vh;
+        height: 35px;
+        
+        #search_field{
+            height: 100%;
+            border-radius: 15px;
+        }
+    }
+}
+
+.second_column{
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
+    .header_row{
+        height: 10%;
+        background-color: red;
+        border-bottom: 2px solid black;
+        
+    }
+    
+    .message_contents{
+        height: 90%;
+    }
+    .header_row, .message_contents{
+        width: 100vw;
+        background-size: cover;
+        padding: 8px;
+    }
+}
+
+/* make both row take all viewport width */
+
+
+
+

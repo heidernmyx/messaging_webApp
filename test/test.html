@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Input Title and Placeholder Example</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+    
+    
+</style>
 </head>
 <body>
-  <select name="test" id="test" title="test">
-    <option value="">active</option>
-    <option value="">Inactive</option>
-    <option value="">Friends</option>
-  </select>
+    
+
+    <script>
+        var searchField = document.getElementById('searchInput').addEventListener('focus', function() {
+            document.querySelector('#searchInput').placeholder = 'Search...';
+            document.querySelector('label').textContent = 'Find users';
+        });
+        document.getElementById('searchInput').addEventListener('blur', function() {
+          let str = document.getElementById('searchInput').value;
+            if (isEmpty(str)) {
+                document.querySelector('label').style.display = 'inline-block';
+                // document.querySelector('.label').textContent = '';
+                document.getElementById('searchInput').placeholder = '';
+                console.log('ni gana');
+            }
+        console.log('wani gana');
+
+        }
+        );
+        function isEmpty(str) {
+          return str.trim() === "";
+        }
+    </script>
 </body>
 </html>
