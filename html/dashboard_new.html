@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="../css/dashboard_new.css">
 <link rel="stylesheet" href="../css/searchfield.css">
 <link rel="stylesheet" href="../css/select_tag.css">
+<link rel="stylesheet" href="../css/popup_card.css">
 <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 <script src="../js/dashboard_searchfield.js" defer></script>
 
@@ -16,7 +17,6 @@
     <img src="" alt="image">
     <div style="height: 10px;"></div>
     <hr>
-
     <!-- * spacer -->
     <div style="height: 33px;"></div>
     <div id="search_container">
@@ -24,7 +24,7 @@
         <input type="text" id="searchInput" name="search" placeholder=" ">
         <label id="searchLabel" for="searchInput">
           <img id="image_label" src="../assets/images/search.png" alt="">
-          <label id="text_label" for="searchInput">Find Friends</label>
+          <label id="text_label" for="searchInput">Search Friends</label>
         </label>
       </div>
     </div>
@@ -42,13 +42,40 @@
     </div>
   </div>
   <div id="second_column">
-      <div id="header_row">
-          <p>test</p>
-          <a href="">test href</a>
+    <!-- !top -->
+    <div id="header_row">
+      <div id="header_row_whole_container">
+        <div style="width: 10px;"></div>
+        <div class="button_container">
+          <input id="add_button" class="header_buttons" type="button" name="add_button" value="Add friend">
+        </div>
+        <div class="button_container">
+          <input id="request_button" class="header_buttons" type="button" name="add_button" value="Requests">
+        </div>
+        <div class="button_container">
+          <input id="unfriend_button" class="header_buttons" type="button" name="add_button" value="Unfriend">
+        </div>
+        <!-- ! -->
+        <div id="separator"></div>
+        <!-- ! -->
+        <div id="profile_and_username_container">
+          <div id="container_asButton">
+            <div id="profile">
+              <img id="profile_img" src="../assets/images/ae86.gif" alt="">
+            </div>
+            <div id="username_placeholder">test_user</div>
+          </div>
+        </div>
       </div>
-      <div id="message_contents">
-          <a href="">test content</a>
-      </div>
+    </div>
+    <!-- todo contents -->
+
+    <div id="message_contents">
+      <p>test</p>
+      <p>test</p>
+      <p>test</p>
+      <p>test</p>
+    </div>
   </div>
 </body>
 </html>

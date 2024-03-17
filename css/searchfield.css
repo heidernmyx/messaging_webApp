@@ -14,12 +14,15 @@
 
 #searchInput {
   width: 100%;
-  background-color: gainsboro;
+  background-color: rgb(82, 80, 80);
   padding: 10px;
   border: none;
   font-size: 21px;
   outline: none;
   box-sizing: border-box;
+}
+#searchInput::placeholder{
+  color: gainsboro;
 }
 #searchLabel, #text_label{
   display: flex;
@@ -31,6 +34,7 @@
   transition: top 0.3s, font-size 0.3s, color 0.3s;
 }
 #text_label, #image_label{
+  color: gainsboro;
   position: relative;
   top: -5px;
   font-size: 17px;
@@ -46,4 +50,8 @@
 }
 #searchInput:focus + .search-placeholder {
   display: inline-block;
+}
+
+input[type="text"] {
+  color: gainsboro; /* Change to your desired text color */
 }
