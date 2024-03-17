@@ -3,45 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Input Title and Placeholder Example</title>
+<title>Flutter-like TextField Animation</title>
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #f0f0f0;
-    }
+
     
-    
+
 </style>
 </head>
 <body>
-    
+<div class="search_container">
+    <input type="text" id="search_field" placeholder="">
+    <label for="search_field">Find users</label>
+</div>
 
-    <script>
-        var searchField = document.getElementById('searchInput').addEventListener('focus', function() {
-            document.querySelector('#searchInput').placeholder = 'Search...';
-            document.querySelector('label').textContent = 'Find users';
-        });
-        document.getElementById('searchInput').addEventListener('blur', function() {
-          let str = document.getElementById('searchInput').value;
-            if (isEmpty(str)) {
-                document.querySelector('label').style.display = 'inline-block';
-                // document.querySelector('.label').textContent = '';
-                document.getElementById('searchInput').placeholder = '';
-                console.log('ni gana');
-            }
-        console.log('wani gana');
+<script>
+    document.getElementById('search_field').addEventListener('focus', function() {
+        document.querySelector('label').style.top = '10px';
+        document.querySelector('label').style.fontSize = '12px';
+        document.querySelector('label').style.color = '#333';
+    });
 
+    document.getElementById('search_field').addEventListener('blur', function() {
+        let str = document.getElementById('search_field').value;
+        if (isEmpty(str)) {
+            document.querySelector('label').style.top = '50%';
+            document.querySelector('label').style.fontSize = '16px';
+            document.querySelector('label').style.color = '#888';
         }
-        );
-        function isEmpty(str) {
-          return str.trim() === "";
-        }
-    </script>
+    });
+
+    function isEmpty(str) {
+        return str.trim() === "";
+    }
+</script>
 </body>
 </html>

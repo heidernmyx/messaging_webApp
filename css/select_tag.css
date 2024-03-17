@@ -1,0 +1,45 @@
+#friendCol_p_container{
+  /* display: flex; */
+  /* justify-content: start; */
+}
+
+
+
+#select_container{
+  display: flex;
+  height: 6vh;
+}
+.select_wrapper{
+  flex: 1;
+  margin-left: 10px;
+}
+#row{
+  display: flex;
+  align-items: center;
+}
+#friend_image{
+  position: relative;
+  padding: 1px 10px;
+  width: 25px;
+  top: 7px;
+}
+#filter_dropdown{
+  font-size: inherit; 
+  width: 100%;
+  height: 100%;
+  font: inherit;
+  margin-right: 0.6vw;
+}
+select{
+  padding: 0px 10px;
+  background-color: inherit;
+  box-sizing: border-box;
+  position: relative;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+select:hover{
+  background-color: #D9D9D9;
+}
+

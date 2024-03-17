@@ -9,7 +9,6 @@ body{
   justify-content: center;
   align-items: center;
   background-color: rgba(27, 23, 23, 0.499);
-  font-family: op;
   color: gainsboro;
 
 }
@@ -43,7 +42,7 @@ img{
   text-align: center;
 }
 
-form label{
+form label, a{
   font-family: 'Open Sans';
 }
 

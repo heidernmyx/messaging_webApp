@@ -5,22 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <link rel="stylesheet" href="../css/dashboard_new.css">
+<link rel="stylesheet" href="../css/searchfield.css">
+<link rel="stylesheet" href="../css/select_tag.css">
 <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-<script src="../js/dashboard.js"></script>
+<script src="../js/dashboard_searchfield.js" defer></script>
 
 </head>
 <body>
   <div id="friends_column">
     <img src="" alt="image">
+    <div style="height: 10px;"></div>
+    <hr>
+
+    <!-- * spacer -->
+    <div style="height: 33px;"></div>
     <div id="search_container">
-      <input id="search_field" type="text" placeholder="Search...">
+      <div style="display: flex;">
+        <input type="text" id="searchInput" name="search" placeholder=" ">
+        <label id="searchLabel" for="searchInput">
+          <img id="image_label" src="../assets/images/search.png" alt="">
+          <label id="text_label" for="searchInput">Find Friends</label>
+        </label>
+      </div>
     </div>
-    <label for="filter_friend">Filter Friends</label>
-    <select name="filter_friend" id="" title="filter_friend">
-      <option value="">Active</option>
-      <option value="">Inactive</option>
-      <option value="">Friends</option>
-    </select>
+    <!-- <label for="filter_friend">Filter Friends</label> -->
+    <div id="select_container">
+      <p><img id="friend_image" src="../assets/images/friends-8.png" alt="friend_image">Contacts:</p>
+      <div id="row" class="select_wrapper">
+        <p></p>
+        <select name="filter_friend" id="filter_dropdown" title="filter friend">
+          <option value="">Active Friends</option>
+          <option value="">Inactive</option>
+          <option value="">Friends</option>
+        </select>
+      </div>
+    </div>
   </div>
   <div id="second_column">
       <div id="header_row">
