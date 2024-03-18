@@ -1,0 +1,7 @@
+tbl for adding, messaging,
+and their idividual query
+search
+show profile
+
+query for current friends
+
