@@ -1,45 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalk</title>
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-    <script src="../js/dashboard.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/searchfield.css">
+<link rel="stylesheet" href="../css/select_tag.css">
+<link rel="stylesheet" href="../css/popup_card.css">
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<script src="../js/dashboard_searchfield.js" defer></script>
+
 </head>
 <body>
-    <div class="container">
-        <div class="container1">
-          <div class="search_container">
-            <input type="text" id="search_field" placeholder="">
-            <label for="search_field" style="top: 50%; font-size: 16px; color: rgb(136, 136, 136);">Find users</label>
-        </div>
-            <div class="dropdown">
-                <div class= "container5" style="display: flex; align-items: center; ">
-                    <img src="friends-8.png" alt="" width="40px" height="auto">
-                    <h3 style="margin-left: 10px; margin-top: 0;">Friends</h3>
-                </div>
-                <button class="dropbtn">Active</button>
-                <div class="dropdown-content">
-                  <a href="#">Active</a>
-                  <a href="#">Inactive</a>
-                  <a href="#">Friends</a>
-                  
-                </div>
-            </div>
-        </div>
-        <div class="container2">
-            <div class="container3" style="display: flex; align-items: center;">
-                <h3>Friends</h3>
-                <h4>Online</h4>
-             <a href=""><img src="d5-removebg-preview.png" alt=""></a>
-            </div>
-            <div class="container4">
-            <img src="d1-removebg-preview.png" alt="">
-            <h2>Get the converation going!</h2>
-            </div>
-        </div>
+  <div id="friends_column">
+    <img src="" alt="image">
+    <div style="height: 10px;"></div>
+    <hr>
+    <!-- * spacer -->
+    <div style="height: 33px;"></div>
+    <div id="search_container">
+      <div style="display: flex;">
+        <input type="text" id="searchInput" name="search" placeholder=" ">
+        <label id="searchLabel" for="searchInput">
+          <img id="image_label" src="../assets/images/search.png" alt="">
+          <label id="text_label" for="searchInput">Search Friends</label>
+        </label>
+      </div>
     </div>
+    <!-- <label for="filter_friend">Filter Friends</label> -->
+    <div id="select_container">
+      <img id="friend_image" src="../assets/images/friends-8.png" alt="friend_image">
+      <label id="contact_label" for="filter_dropdown">Contacts:</label>
+      <div id="row" class="select_wrapper">
+        <!-- <p></p> -->
+        <select name="filter_friend" id="filter_dropdown" title="filter friend">
+          <option value="">Active Friends</option>
+          <option value="">Inactive</option>
+          <option value="">Friends</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div id="second_column">
+    <!-- !top -->
+    <div id="header_row">
+      <div id="header_row_whole_container">
+        <div style="width: 10px;"></div>
+        <div class="button_container">
+          <input id="add_button" class="header_buttons" type="button" name="add_button" value="Add friend">
+        </div>
+        <div class="button_container">
+          <input id="request_button" class="header_buttons" type="button" name="add_button" value="Requests">
+        </div>
+        <div class="button_container">
+          <input id="unfriend_button" class="header_buttons" type="button" name="add_button" value="Unfriend">
+        </div>
+        <!-- ! -->
+        <div id="separator"></div>
+        <!-- ! -->
+        <div id="profile_and_username_container">
+          <div id="container_asButton">
+            <div id="profile">
+              <img id="profile_img" src="../assets/images/ae86.gif" alt="">
+            </div>
+            <div id="username_placeholder">test_user</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- todo contents -->
+
+    <div id="message_contents">
+      <div id="float">
+        <div id="floating_container">
+          <img id="ellipsis" class="invert_colors" src="../assets/images/ellipsis.png" alt="3dots">
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

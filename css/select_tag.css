@@ -13,23 +13,30 @@
   flex: 1;
   margin-left: 10px;
 }
+#contact_label, #friend_image{
+  display: flex;
+  align-items: center;
+}
 #row{
   display: flex;
   align-items: center;
 }
 #friend_image{
+  align-self: center;
+  width: 11px;
   position: relative;
-  padding: 1px 10px;
-  width: 25px;
-  top: 7px;
+  padding: 0px 10px;
+  height: 4vh;
+  width: 4vh;
 }
 #filter_dropdown{
   font-size: inherit; 
   width: 100%;
   height: 100%;
   font: inherit;
-  margin-right: 0.6vw;
+  /* margin-right: 0.6vw; */
 }
+
 select{
   padding: 0px 10px;
   background-color: inherit;
