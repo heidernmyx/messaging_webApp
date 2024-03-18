@@ -35,6 +35,7 @@ hr, #friends_column, .header_buttons, #username_placeholder{
   /* todo: change color */
   background-color: rgba(67,65,65,255);
   display: flex;
+  border-bottom: 2px solid gainsboro;
 }
 
 #header_row_whole_container {
@@ -42,10 +43,7 @@ hr, #friends_column, .header_buttons, #username_placeholder{
   flex: 1; 
 }
 
-#message_contents {
-  flex: 1; 
-  background-color: blue;
-}
+
 
 .button_container {
   height: 100%;
@@ -123,6 +121,45 @@ hr, #friends_column, .header_buttons, #username_placeholder{
   margin-right: -1px;
   background-color: rgba(0, 0, 0, 0.230);
   filter: brightness(1.2);
+}
+
+#message_contents {
+  flex: 1; 
+  background-color: rgba(13,16,23,205);
+  display: flex;
+  flex-direction: column;
+}
+
+.invert_colors{
+  filter: invert(100%);
+}
+#float {
+  display: flex;
+  justify-content: flex-end; /* Adjust as needed */
+  position: fixed; /* Adjust positioning as needed */
+  right: 20px; /* Adjust positioning as needed */
+}
+#floating_container {
+  height: 7vh; /* Adjust as needed */
+  width: 7vh; /* Make it a square */
+  background-color: inherit; 
+  border: 1px solid #dddddd;
+  border-radius: 50%; 
+  margin-top: 1vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+#ellipsis {
+  height: 4vh; /* Adjust as needed */
+  width: 4vh; /* Adjust as needed */
+  mix-blend-mode: lighten;
+}
+#floating_container:hover {
+  transform: scale(1.1); 
 }
 
 
