@@ -2,32 +2,34 @@
 
 
 #search_container{
+  position: relative;
   display: flex;
   justify-content: center;
-  width: auto;
+  width: 22vw;
   margin-bottom: 8px;
 }
 
 #searchInput {
   height: 7vh;
-  width: 22vw;
+  width: 21vw;
   font-size: inherit; 
   background-color: rgb(82, 80, 80);
   border: none;
   outline: none;
-  margin: inherit;
+  padding-left: 1vw;
 }
 #searchInput::placeholder {
   color: gainsboro;
 }
 #image_label{
   padding-left: 3px;
+  padding-right: 4px;
   width: 22px;
 }
-#searchLabel, #text_label{
+#searchLabel{
   display: flex;
   position: absolute;
-  top: 14px;
+  top: 12px;
   left: 10px;
   font-size: inherit;
   color: #333;
@@ -41,7 +43,7 @@
   cursor: text;
 }
 #searchInput:focus + #searchLabel, #searchInput:not(:placeholder-shown) + #searchLabel {
-  top: -20px;
+  top: -21px;
   font-size: 19px;
   color: #333;
 }
@@ -53,5 +55,5 @@
 }
 
 input[type="text"] {
-  color: gainsboro; /* Change to your desired text color */
+  color: gainsboro; 
 }

@@ -5,16 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <link rel="stylesheet" href="../css/dashboard.css">
-<link rel="stylesheet" href="../css/searchfield.css">
 <link rel="stylesheet" href="../css/select_tag.css">
 <link rel="stylesheet" href="../css/popup_card.css">
+<link rel="stylesheet" href="../css/searchfield.css">
+<link rel="stylesheet" href="../css/message_contents.css">
 <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="../js/dashboard_searchfield.js" defer></script>
+<script src="../js/session.js" defer></script>
+<script src="../js/send_message.js" defer></script>
 
 </head>
 <body>
   <div id="friends_column">
-    <img src="" alt="image">
+    <img src="" alt="image (supposed to be logo)">
     <div style="height: 10px;"></div>
     <hr>
     <!-- * spacer -->
@@ -22,10 +26,10 @@
     <div id="search_container">
       <div style="display: flex;">
         <input type="text" id="searchInput" name="search" placeholder=" ">
-        <label id="searchLabel" for="searchInput">
+        <div id="searchLabel" for="searchInput">
           <img id="image_label" src="../assets/images/search.png" alt="">
           <label id="text_label" for="searchInput">Search Friends</label>
-        </label>
+        </div>
       </div>
     </div>
     <!-- <label for="filter_friend">Filter Friends</label> -->
@@ -62,21 +66,44 @@
         <div id="profile_and_username_container">
           <div id="container_asButton">
             <div id="profile">
-              <img id="profile_img" src="../assets/images/ae86.gif" alt="">
+              <img id="user_profile_img" src="../assets/images/ae86.gif" alt="">
             </div>
-            <div id="username_placeholder">test_user</div>
+            <div id="username_placeholder"></div>
           </div>
         </div>
       </div>
     </div>
     <!-- todo contents -->
-
     <div id="message_contents">
+      <div id="friend_name_container">
+        <div id="name_wrapper">
+          <div id="image_container">
+            <img id="friend_dp" src="../assets/images/pikachu-pixel.gif" alt="image">
+          </div>
+          <div id="friend_name">amegha's_username</div>
+        </div>
+      </div>
+      <div>
+      </div>
       <div id="float">
         <div id="floating_container">
           <img id="ellipsis" class="invert_colors" src="../assets/images/ellipsis.png" alt="3dots">
         </div>
       </div>
+      <div id="chat_textfield_container">
+        <div id="chat_textfield">
+          <input id="message_content" type="text" placeholder="Type a message...">
+        </div>
+        <div id="send_button_style">
+          <button id="send_button">
+            <img src="../assets/svg/send-arrow-direction-svgrepo-com.svg" alt="Send">
+          </button>
+        </div>
+        
+      </div>
+    
+      
+
     </div>
   </div>
 </body>

@@ -21,3 +21,17 @@ $(document).ready(function() {
     });
   });
 });
+
+$.ajax({
+  type: "POST",
+  url: "../php/send_message.php",
+  data: String,
+  success: () =>{
+
+  },
+  error: function(xhr, status, error) {
+        // Handle error
+        console.error(xhr.responseText);
+      }
+  dataType: JSON
+});

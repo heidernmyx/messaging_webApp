@@ -1,0 +1,90 @@
+#friend_name_container{
+  display: flex;
+  height: 5vw;
+  width: 17vw;
+  margin-left: 1vw;
+}
+
+#name_wrapper{
+  display: flex;
+  align-items: center;
+}
+#image_container{
+  /* margin-right: 1vh; */
+  height: 7vh;
+  width: 7vh;
+  border-radius: 50%;
+
+}
+#friend_dp{
+  height: 100%;
+  border-radius: 50%;
+  cursor: pointer;
+
+}
+#friend_name{
+  
+}
+#image_container, #friend_name{
+  padding: 0px 10px;
+}
+
+#chat_textfield_container {
+  display: flex;
+  height: 6vh;
+  width: 69vw;
+  align-items: center;
+  padding: 10px 0px 10px 10px;
+  background-color: inherit;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 2.4vh;
+  margin-left: 1vw;
+}
+
+#chat_textfield {
+  /* flex: 1;  */
+  display: flex;
+  align-items: center;
+}
+
+#chat_textfield input {
+  width: 68vw;
+  border: none;
+  background: transparent;
+  padding-left: -10px;
+  font-size: 17px;
+  outline: none;
+  margin-right: 1vh;
+}
+
+#send_button_style {
+  margin: 0px 4.4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#send_button_style button {
+  height: 8vh;
+  padding: 10px;
+  background-color: inherit;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#send_button_style button img {
+  width: 3vh;
+  height: 4vh;
+  mix-blend-mode: lighten;
+  transform: rotate(-90deg);
+  filter: invert(38%) sepia(68%) saturate(279%) hue-rotate(192deg) brightness(100%) contrast(91%); /* Adjust color and appearance */
+}
+
+#send_button_style button:hover {
+  background-color: gainsboro;
+}
+
