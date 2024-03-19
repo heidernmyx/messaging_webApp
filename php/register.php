@@ -94,7 +94,5 @@ $stmt->bindParam(':birthdate', $birthdate, PDO::PARAM_STR);
 $stmt->execute();
 
 // header ('Location: ./index.html');
-
-$conn = null;
 ?>
 

@@ -11,7 +11,7 @@ var message_data= {
   content: message_content,
   date: current_dateTime
 }
-
+console.log(false);
 const send_button = document.getElementById("send_button");
 send_button.addEventListener("click", () =>{
   $.ajax({

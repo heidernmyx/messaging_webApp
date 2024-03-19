@@ -24,7 +24,7 @@ $_SESSION['username'] = '';
 
 if ($result) {
   if($username_input == $result['username'] && $password_input == $result['password']) {
-    $_SESSION['logged_in'] = true;
+    $_SESSION['log_in'] = true;
     $_SESSION['user_id'] = $result['user_id'];
     $_SESSION['username'] =  $result['username'];
     echo "success";

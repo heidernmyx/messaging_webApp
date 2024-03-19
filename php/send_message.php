@@ -2,6 +2,7 @@
 
 include '../include/connection.php';
 
+// $conn = new PDO();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $sender_id = $_POST['sender_id'];
@@ -34,5 +35,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   echo "success";
   
-  $conn = null;
 }
+// $conn = null;

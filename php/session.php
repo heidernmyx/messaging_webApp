@@ -5,10 +5,10 @@ session_start();
 // * if true = there's a session
 // * currentyly on going
 
-if (isset($_SESSION['username']) && ($_SESSION['user_id'])){
+if ($_SESSION['log_in']){
   $session_data = array(
-    'username' => $_SESSION['username'],
-    'user_id' => $_SESSION['user_id'],
+    "username" => $_SESSION['username'],
+    "user_id" => $_SESSION['user_id'],
   );
   echo json_encode($session_data);
 }
