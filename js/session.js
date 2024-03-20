@@ -5,7 +5,6 @@ let username = '';
 // ?ajax request to fetch session vars
 
 window.addEventListener('load', function() {
-  console.log(true);
   $(document).ready(() => {
     $.ajax({
       url: "../php/session.php",
@@ -13,12 +12,8 @@ window.addEventListener('load', function() {
       // data: 
       dataType: 'json',
       success: function (response) {
-        
         user_id = response.user_id;
         username = response.username;
-        console.log(response);
-        alert(user_id);
-  
         $("#username_placeholder").html(username);
       },
       error: function (xhr, status, error) {
@@ -30,6 +25,7 @@ window.addEventListener('load', function() {
   console.log('Module loaded');
 });
 
+// module.exports = {user_id};
 
 
 
