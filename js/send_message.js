@@ -4,8 +4,14 @@
 
 const send_button = document.getElementById('send_button');
 send_button.addEventListener("click", () =>{
-  let current_dateTime = new Date().toLocaleString();
+  // let current_dateTime = new Date().toLocaleString();
+  let current_dateTime = new Date().toISOString().slice(0, 19).replace('T', ' ');
+
+  // let current_dateTime = new Date();
+  console.log(current_dateTime);
+
   let message_content = document.querySelector('#input_message').value;
+  
 
   let message_data= { 
     sender_id: user_id,
@@ -15,7 +21,7 @@ send_button.addEventListener("click", () =>{
     message_content: message_content,
     date: current_dateTime
   }
-  console.log(message_data.sender_id);
+  
   $.ajax({
     type: "POST",
     url: "../php/send_message.php",
@@ -30,4 +36,4 @@ send_button.addEventListener("click", () =>{
     },
     // dataType: JSON
   });
-})
+});

@@ -23,7 +23,6 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (empty($result)) {
   // Query returned nothing, username and email are available
-  echo "Username and Email are available for registration!";
 
   $sql = "INSERT INTO `tbl_accounts`(
     `username`, 
@@ -37,27 +36,11 @@ if (empty($result)) {
   $stmt->bindParam(':password', $password_input, PDO::PARAM_STR);
   $stmt->bindParam(':email_address', $email, PDO::PARAM_STR);
   $stmt->execute();
-} 
-else{
-  if ($username_input == $result['username'] && $email == $result['email_address']) {
-    echo "Username and Email is already taken!";
-    exit();
-  }
-  else if ($username_input == $result['username']) {
-    echo "Username is unavailable";
-    exit();
-  }
-  else if ($email == $result['email_address']) {
-    echo "Email is already registered";
-    exit();
-  }
-}
 
+  
+  $user_id = $conn->lastInsertId();
 
-
-$user_id = $conn->lastInsertId();
-
-
+echo 'yate';
 $fname = $_POST['fname'];
 $mname = $_POST['mname'];
 $lname = $_POST['lname'];
@@ -67,12 +50,12 @@ $role = 'user';
 
 
 $sql = "INSERT INTO `tbl_profile`(
-  `user_id`,
-  `fname`,
-  `mname`,
-  `lname`,
-  `gender`,
-  `birthdate`
+  user_id,
+  fname,
+  mname,
+  lname,
+  gender,
+  birthdate
 )
 VALUES(
   :user_id,
@@ -92,6 +75,28 @@ $stmt->bindParam(':gender', $gender, PDO::PARAM_STR);
 $stmt->bindParam(':birthdate', $birthdate, PDO::PARAM_STR);
 // $stmt->bindParam(':role', $role, PDO::PARAM_STR);
 $stmt->execute();
+
+echo "Username and Email are available for registration!";
+
+
+} 
+else{
+  if ($username_input == $result['username'] && $email == $result['email_address']) {
+    echo "Username and Email is already taken!";
+    exit();
+  }
+  else if ($username_input == $result['username']) {
+    echo "Username is unavailable";
+    exit();
+  }
+  else if ($email == $result['email_address']) {
+    echo "Email is already registered";
+    exit();
+  }
+}
+
+
+
 
 // header ('Location: ./index.html');
 ?>

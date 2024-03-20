@@ -31,7 +31,7 @@
 
 #chat_textfield_container {
   display: flex;
-  height: 6vh;
+  height: 4.5vh;
   width: 69vw;
   align-items: center;
   padding: 10px 0px 10px 10px;
@@ -88,3 +88,32 @@
   background-color: gainsboro;
 }
 
+
+
+
+#message_placements{
+  margin: 0px 1vw;
+  height: 67vh;
+  width: 73.9vw;
+  overflow-y: auto;
+  word-wrap: break-word;
+  /* display: flex; */
+}
+.red{
+  color: red;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 150px; /* Adding border radius */
+}
+
+::-webkit-scrollbar-track {
+  background: inherit; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9); /* Applying drop shadow */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #838080; 
+  border-radius: 5px; /* Adding border radius */
+}
