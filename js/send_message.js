@@ -29,6 +29,7 @@ send_button.addEventListener("click", () =>{
     success: (response) =>{
       console.log(response);
       console.log(message_data);
+      $('#input_message').html('');
     },
     error: function(xhr, status, error) {
       // Handle error
