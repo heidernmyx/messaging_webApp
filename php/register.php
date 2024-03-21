@@ -78,7 +78,6 @@ $stmt->execute();
 
 echo "Username and Email are available for registration!";
 
-
 } 
 else{
   if ($username_input == $result['username'] && $email == $result['email_address']) {

@@ -44,6 +44,6 @@ VALUES(
   // $stmt->bindParam(':date_sent', $date_sent, PDO::PARAM_STR);
   $stmt->execute();
 
-  // echo $date_sent;
+  echo "message sent";
   
 }

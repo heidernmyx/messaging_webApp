@@ -4,21 +4,22 @@ let username = '';
 
 // ?ajax request to fetch session vars
 $(document).ready(function () {
-  $.ajax({
-    url: "../php/session.php",
-    type: "GET",
-    dataType: "JSON",
-    success: function (response) {
-      user_id = response.user_id;
-      username = response.username;
-
-      $("#username_placeholder").html(username);
-    },
-    error: function (xhr, status, error) {
-      console.error("Error fetching session data:", error);
-      alert("Error fetching session data.");
-    }
-  });
+  setTimeout(() => {
+    $.ajax({
+      url: "../php/session.php",
+      type: "GET",
+      dataType: "JSON",
+      success: function (response) {
+        user_id = response.user_id;
+        username = response.username;
+        $("#username_placeholder").html(username);
+      },
+      error: function (xhr, status, error) {
+        console.error("Error fetching session data:", error);
+        alert("Error fetching session data.");
+      }
+    });
+  }, 1000);
 });
 
 // $(document).ready(function() {
