@@ -110,15 +110,31 @@
     </div>
   </div>
 
-
-
-  <div id="add_modal" class="add_modal">
+  <div id="add_modal" class="header_button_modal">
     <div id="add_modal_container">
       <div id="add_modal_content">
         <span class="close">&times;</span>
-        <h3>Search friend to add!</h3>
-        <div>
-          <input type="text" name="add_friend_textfield" placeholder="Search">
+        <div class="modal_title_container">
+          <div class="modal_title">
+            <h2>Search users to add!</h2>
+          </div>
+        </div>
+        <div class="modal_input">
+          <div class="modal_input_container">
+            <input id="search_user_input" class="" type="text" name="search_user_input" placeholder="Enter username...">
+            <button id="add_button_search"><img src="../assets/images/search.png" alt=""></button>
+          </div>
+        </div>
+        <div id="search_results">
+          <div id="search_result_container">
+            <div class="user_info">
+              <div class="user_info_container" >
+                id: profile: name:
+                <hr>
+              </div>
+              <hr>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -23,7 +23,7 @@ send_button.addEventListener("click", () =>{
   }
   
   $.ajax({
-    type: "POST",
+    type: "get",
     url: "../php/send_message.php",
     data: message_data,
     success: (response) =>{
@@ -31,7 +31,7 @@ send_button.addEventListener("click", () =>{
       console.log(message_data);
       $('#input_message').html('');
     },
-    error: function(xhr, status, error) {
+    error: (xhr, status, error) =>{
       // Handle error
       console.error(xhr.responseText);
     },
