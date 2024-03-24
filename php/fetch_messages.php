@@ -22,8 +22,7 @@ JOIN
 JOIN
   tbl_accounts receiver ON m.sent_to = receiver.user_id
 
-  WHERE  m.sent_by = :sent_by and m.sent_to = :sent_to OR
-         m.sent_by = :sent_to and m.sent_to = :sent_by
+  WHERE  m.sent_by = :sent_by and m.sent_to = :sent_to
   
 ";
   $stmt = $conn->prepare($sql);

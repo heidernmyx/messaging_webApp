@@ -1,0 +1,12 @@
+<div class="user_info">
+              <div class="dp_username_asRow">
+                <div class="search_result_dp"><img src="../assets/images/gwapo.jpg" alt=""></div>
+                <div style="width: 1vw;"></div>
+                <div class="search_result_username">
+                  <!-- ! placeholder -->
+                  <strong id="username_placeholder"></strong>
+                </div>
+                <div style="width: 34vw;"></div>
+                <div id="user_id_placeholder">Unique ID: <div id="user_id"></div></div>
+              </div>
+              </div>

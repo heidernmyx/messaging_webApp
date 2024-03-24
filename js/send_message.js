@@ -23,7 +23,7 @@ send_button.addEventListener("click", () =>{
   }
   
   $.ajax({
-    type: "get",
+    type: "post",
     url: "../php/send_message.php",
     data: message_data,
     success: (response) =>{

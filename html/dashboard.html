@@ -10,14 +10,18 @@
 <link rel="stylesheet" href="../css/searchfield.css">
 <link rel="stylesheet" href="../css/message_contents.css">
 <link rel="stylesheet" href="../css/addFriend_modal.css">
+<link rel="stylesheet" href="../css/requests_modal.css">
 <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../js/dashboard_searchfield.js" defer></script>
 <script type="text/javascript" src="../js/session.js" defer></script>
 <script type="text/javascript" src="../js/send_message.js" defer></script>
 <script type="text/javascript" src="../js/fetch_messages.js" defer></script>
-<script type="text/javascript" src="../js/add_friend.js" defer></script>
+<script src="../js/add_friend.js" defer></script>
+<script src="../js/friend_request.js" defer></script>
+
 </head>
 <body>
   <div id="friends_column">
@@ -56,13 +60,13 @@
       <div id="header_row_whole_container">
         <div style="width: 10px;"></div>
         <div class="button_container">
-          <input id="add_friend_button" class="header_buttons" type="button" name="add_button" value="Add friend">
+          <input id="header_add_friend_button" class="header_buttons" type="button" name="add_button" value="Add friend">
         </div>
         <div class="button_container">
-          <input id="request_button" class="header_buttons" type="button" name="add_button" value="Requests">
+          <input id="header_request_button" class="header_buttons" type="button" name="add_button" value="Requests">
         </div>
         <div class="button_container">
-          <input id="unfriend_button" class="header_buttons" type="button" name="add_button" value="Unfriend">
+          <input id="header_unfriend_button" class="header_buttons" type="button" name="add_button" value="Unfriend">
         </div>
         <!-- ! -->
         <div id="separator"></div>
@@ -110,6 +114,7 @@
     </div>
   </div>
 
+  <!-- ! start, add modal -->
   <div id="add_modal" class="header_button_modal">
     <div id="add_modal_container">
       <div id="add_modal_content">
@@ -122,22 +127,72 @@
         <div class="modal_input">
           <div class="modal_input_container">
             <input id="search_user_input" class="" type="text" name="search_user_input" placeholder="Enter username...">
-            <button id="add_button_search"><img src="../assets/images/search.png" alt=""></button>
+            <button id="add_button_search" title="modal_search"><img src="../assets/images/search.png" alt=""></button>
           </div>
         </div>
         <div id="search_results">
           <div id="search_result_container">
-            <div class="user_info">
-              <div class="user_info_container" >
-                id: profile: name:
-                <hr>
-              </div>
-              <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ! end -->
+
+  <!-- ! start, request modal -->
+  <div id="request_modal" class="header_button_modal">
+    <div id="request_modal_container">
+      <div id="request_modal_content">
+        <span class="close_request_modal">&times;</span>
+        <div class="modal_title_container">
+          <div class="modal_title">
+            <h2>Friend Requests</h2>
+          </div>
+        </div>
+        <div id="requests">
+          <div id="requests_container">
+            <div id="request_user_info">
+
+              <!-- <div class="dp_username_asRow" add_id=''>
+                <div class="dp_username_container">
+                  <div class='requests_dp'>
+                    <img src='../assets/images/gwapo.jpg' alt='user_profile_image'>
+                  </div>
+                  <div class='requests_username'>
+                    <strong id='username_placeholder'>".$result['username']."</strong>
+                  </div>
+                </div>
+                <div class='accept_button_container'>
+                  <button id='accept_button' id_ofUser_request=''>Accept</button>
+                  <button id='decline_button' decline_request=''>Decline</button>
+                </div>
+              </div><hr> -->
+
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <!-- ! end -->
+
 </body>
 </html>
+<!-- 
+<div class='user_info'>
+  <div class='dp_username_asRow'>
+    <div class='dp_username_container'>
+      <div class='search_result_dp'><img src='../assets/images/gwapo.jpg' alt=''></div>
+      <div style='width: 1vw;'></div>
+      <div class='search_result_username'>
+        <strong id='username_placeholder'>".$result['username']."</strong>
+      </div>
+    </div>
+    <div class='id_container'>
+      <div id='user_id_placeholder'>Unique ID: ".$result['user_id']."</div>
+    </div>
+    <div class='add_user_button_container'>
+      <button id='add_user_button' id_Ofadded_user='".$result['user_id']."'>Add Friend</button>
+    </div>
+  </div>
+</div> -->
