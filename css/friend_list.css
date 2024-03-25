@@ -1,0 +1,47 @@
+#friend_list{
+  display: flex;
+}
+#friend_list_container{
+  display: flex;
+  flex-direction: column;
+  height: 67.5vh;
+  width: 22vw;
+  margin-top: 5px;
+  border-radius: 20px;
+  padding: 10px 8px;
+  border: 1px solid grey;
+  box-shadow: inset 1px 0px 10px grey;
+  background-color: rgb(77, 77, 77);
+  overflow-y: auto;
+}
+
+.asButton{
+  transition: opacity 0.3s ease;
+}
+._asButton:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.friend_list_user_asRow{
+  display: flex;
+  flex-direction: column;
+}
+
+.friend_list_dp_username_container{
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  width: 19vw;
+  padding: 8px 10px;
+}
+.friend_list_profileImg img{
+  height: 6vh;
+  margin: 0px 5px;
+}
+
+.requests_username strong{
+  font-size: 15px;
+}
+
+

@@ -28,25 +28,31 @@ close_request_modal.addEventListener('click', () =>{
 });
 
 document.addEventListener('click', (event) => {
-  if (event.target.matches('#accept_button') || event.target.matches('#decline_button')) {
-      var choice = event.target.id === 'accept_button' ? 'accept' :
+  if (event.target.id === 'accept_button' ||event.target && event.target.id === 'decline_button') {
+    var choice = 
+      event.target.id === 'accept_button' ? 'accept' :
       event.target.id === 'decline_button' ? 'decline' : null;
-      var request_user_id = event.target.getAttribute('id_Of${choice}_user');
-      console.log(request_user_id);
-      $.ajax({
-          type: 'get',
-          url: '../php/friend_requests.php',
-          data: {
-              choice: choice,
-              session_id: user_id,
-              request_user_id: request_user_id
-          },
-          success: (response) => {
-              console.log(response);
-          },
-          error: (xhr, status, error) => {
-              console.log(xhr.responseText);
-          }
-      })
+    var id_Ofaccepted_user = 
+      choice === 'accept' ? event.target.getAttribute('id_Ofaccepted_user'): 
+      choice === 'decline' ? event.target.getAttribute('id_Ofdeclined_user'): null;
+    var add_id = event.target.getAttribute('add_id');
+    console.log(true);
+    $.ajax({
+      type: 'get',
+      url: '../php/friend_requests.php',
+      data: {
+        choice: choice,
+        add_id: add_id,
+        session_id: user_id,
+        request_user_id: id_Ofaccepted_user,
+      },
+      success: (response) => {
+        alert(response);
+        $(`.dp_username_asRow[add_id='${add_id}']`).remove();
+      },
+      error: (xhr, status, error) => {
+      console.log(xhr.responseText);
+      }
+    })
   }
 });

@@ -29,6 +29,10 @@
   width: 68vw;
   word-wrap: break-word;
 }
+
+#friend_name_placeholder{
+  font-size: 18px;
+}
 #image_container, #friend_name{
   padding: 0px 10px;
 }

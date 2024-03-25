@@ -50,7 +50,7 @@ search_user_input = document.getElementById('search_user_input').value.toString(
 document.addEventListener('click', (event) => {
   // Check if the clicked element has the id 'add_user_button'
   if (event.target && event.target.id === 'add_user_button') {
-
+    var id_Ofadded_user = event.target.getAttribute('id_Ofadded_user');
       $.ajax({
           type: 'post',
           url: '../php/add_friend.php',

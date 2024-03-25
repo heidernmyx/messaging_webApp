@@ -3,7 +3,7 @@ let user_id = '';
 let username = '';
 
 // ?ajax request to fetch session vars
-$(document).ready(function () {
+$(document).ready(() => {
   setTimeout(() => {
     $.ajax({
       url: "../php/session.php",

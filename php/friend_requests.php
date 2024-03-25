@@ -23,7 +23,7 @@ WHERE added_user = :user_session
   while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
     $result = $row;
-    echo "<div class='dp_username_asRow' add_id=".$result['add_id'].">
+    echo "<div class='dp_username_asRow' add_id='".$result['add_id']."'>
     <div class='dp_username_container'>
       <div class='requests_dp'>
         <img src='../assets/images/gwapo.jpg' alt='user_profile_image'>
@@ -33,41 +33,84 @@ WHERE added_user = :user_session
       </div>
     </div>
     <div class='accept_button_container'>
-      <button id='accept_button' id_Ofaccepted_user=".$result['added_by'].">Accept</button>
-      <button id='decline_button' id_Ofdeclined_user=".$result['added_by'].">Decline</button>
+      <button id='accept_button' id_Ofaccepted_user='".$result['added_by']."' add_id='".$result['add_id']."'>Accept</button>
+      <button id='decline_button' id_Ofdeclined_user='".$result['added_by']."' add_id='".$result['add_id']."'>Decline</button>
     </div>
   </div><hr>";
   }
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['choice'] == 'accept') {
-//   $sql = "INSERT INTO `tbl_contacts`(
-//       user_id
-//       friend_id)
-//       VALUES(
-//         :user_session,
-//         :added_friend
-// )";
-//   $stmt = $conn->prepare($sql);
-//   $stmt->bindParam('user_session', $_POST['session_id'], PDO::PARAM_INT);
-//   $stmt->bindParam('added_friend', $_POST['request_user_id'], PDO::PARAM_INT);
-//   $stmt->execute();
 
-//   $sql = "INSERT INTO `tbl_contacts`(
-//     user_id
-//     friend_id)
-//     VALUES(
-//       :added_friend,
-//       :user_session
-// )";
-// $stmt = $conn->prepare($sql);
-// $stmt->bindParam('user_session', $_POST['session_id'], PDO::PARAM_INT);
-// $stmt->bindParam('added_friend', $_POST['request_user_id'], PDO::PARAM_INT);
-// $stmt->execute();
-echo json_encode("accepted", $_POST['id_Ofdeclined_user']);
+// TODO ACCEPT
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['choice'] == 'accept') {
+  // * query for accepting request
+  $sql = "INSERT INTO tbl_contacts(
+      user_id,
+      friend_id)
+      VALUES(
+        :user_session,
+        :added_friend
+)";
+  $stmt = $conn->prepare($sql);
+  $stmt->bindParam(':user_session', $_GET['session_id'], PDO::PARAM_INT);
+  $stmt->bindParam(':added_friend', $_GET['request_user_id'], PDO::PARAM_INT);
+  $stmt->execute();
+
+  $sql = "INSERT INTO tbl_contacts(
+    user_id,
+    friend_id)
+    VALUES(
+      :added_friend,
+      :user_session
+)";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':user_session', $_GET['session_id'], PDO::PARAM_INT);
+$stmt->bindParam(':added_friend', $_GET['request_user_id'], PDO::PARAM_INT);
+$stmt->execute();
+
+
+  $sql= "INSERT INTO tbl_conversation(
+    user1_id,
+    user2_id
+)
+VALUES(
+    :user_session,
+    :added_friend
+)";
+  $stmt = $conn->prepare($sql);
+  $stmt->bindParam(':user_session', $_GET['session_id'], PDO::PARAM_INT);
+  $stmt->bindParam(':added_friend', $_GET['request_user_id'], PDO::PARAM_INT);
+  $stmt->execute();
+// * followed by delete of request on db
+
+  $sql = "DELETE
+  FROM
+      `tbl_add`
+  WHERE
+      `add_id` = :add_id";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam('add_id', $_GET['add_id'], PDO::PARAM_INT);
+
+$stmt->execute();
+
+
+
+echo json_encode("Request Accepted");
 
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['choice'] == 'decline') {
+// * if declined delete
+  $sql = "DELETE
+  FROM
+      `tbl_add`
+  WHERE
+      `add_id` = :add_id";
+
+$stmt = $conn->prepare($sql);
+$stmt->bindParam('add_id', $_GET['add_id'], PDO::PARAM_INT);
+$stmt->execute();
+
   echo json_encode("Friend Request Declined");
+  
 }

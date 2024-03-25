@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dashboard</title>
 <link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/friend_list.css">
+<link rel="stylesheet" href="../css/searchfield.css">
 <link rel="stylesheet" href="../css/select_tag.css">
 <link rel="stylesheet" href="../css/popup_card.css">
-<link rel="stylesheet" href="../css/searchfield.css">
 <link rel="stylesheet" href="../css/message_contents.css">
 <link rel="stylesheet" href="../css/addFriend_modal.css">
 <link rel="stylesheet" href="../css/requests_modal.css">
@@ -21,6 +22,7 @@
 <script type="text/javascript" src="../js/fetch_messages.js" defer></script>
 <script src="../js/add_friend.js" defer></script>
 <script src="../js/friend_request.js" defer></script>
+<script type="text/javascript" src="../js/load_friend_list.js" defer></script>
 
 </head>
 <body>
@@ -52,7 +54,33 @@
         </select>
       </div>
     </div>
-    <div id="friend_container"></div>
+    <div id="friend_list">
+      <div id="friend_list_container">
+
+          <div class="friend_list_user_asRow">
+            
+
+
+            <!-- <div class='_asButton' fetch_friend_list_uname=''>
+              <div class='friend_list_dp_username_container'>
+                <div class='friend_list_profileImg'>
+                  <img src='../assets/images/cat-nyan-cat.gif' alt='user_profile_image'>
+                </div>
+                <div class='requests_username'>
+                  <strong id='friend_list_username_placeholder'>wad</strong>
+                </div>
+              </div>
+            </div> -->
+
+            
+
+
+            
+
+          </div>
+
+      </div>
+    </div>
   </div>
   <div id="second_column">
     <!-- !top -->
@@ -88,7 +116,9 @@
           <div id="image_container">
             <img id="friend_dp" src="../assets/images/pikachu-pixel.gif" alt="image">
           </div>
-          <div id="friend_name">amegha's_username</div>
+          <div id="friend_name">
+            <strong id="friend_name_placeholder"><i>Select Conversation!</i></strong>
+          </div>
         </div>
       </div>
       <div>
