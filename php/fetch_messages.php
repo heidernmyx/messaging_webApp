@@ -5,8 +5,9 @@ include '../include/connection.php';
 session_start();
 
 //currently in session
+$conversation_id = $_POST['conversation_id'];
 $user_id = $_POST['sender_id'];
-$friend_id = 6;
+$friend_id =$_POST['recipient_id'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $sql = "SELECT
@@ -22,12 +23,13 @@ JOIN
 JOIN
   tbl_accounts receiver ON m.sent_to = receiver.user_id
 
-  WHERE  m.sent_by = :sent_by and m.sent_to = :sent_to
+  WHERE m.conversation_id = :conversation_id
   
 ";
   $stmt = $conn->prepare($sql);
-  $stmt->bindParam(':sent_by', $user_id, PDO::PARAM_INT);
-  $stmt->bindParam(':sent_to', $friend_id, PDO::PARAM_INT);
+  // $stmt->bindParam(':sent_by', $user_id, PDO::PARAM_INT);
+  // $stmt->bindParam(':sent_to', $friend_id, PDO::PARAM_INT);
+  $stmt->bindParam(':conversation_id',$conversation_id, PDO::PARAM_INT);
   $stmt->execute();
 
   // $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

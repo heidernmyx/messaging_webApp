@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $sql = "SELECT
     contact_id,
     friend_id,
+    conversation_id,
     tbl_accounts.username
   FROM
     tbl_contacts
@@ -27,18 +28,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = $row;
 
     $html = "<div class='_asButton' id='fetch_friend_data' 
-    data-fetch_friend_list_uid='". $result['friend_id']."'
-    data-fetch_friend_list_uname='".$result['username']."'>
-        <div class='friend_list_dp_username_container' id='fetch_friend_data' data-fetch_friend_list_uid='". $result['friend_id'] ."'
-        data-fetch_friend_list_uname='".$result['username']."'>
-          <div class='friend_list_profileImg'>
+    data-fetch_friend_list_id_convo='" . $result['conversation_id'] . "'
+    data-fetch_friend_list_uid='" . $result['friend_id'] . "'
+    data-fetch_friend_list_uname='" . $result['username'] . "'>
+    <div class='friend_list_dp_username_container' id='fetch_friend_data' 
+        data-fetch_friend_list_uid='" . $result['friend_id'] . "'
+        data-fetch_friend_list_uname='" . $result['username'] . "'
+        data-fetch_friend_list_id_convo='" . $result['conversation_id'] . "'
+        >
+        <div class='friend_list_profileImg'>
             <img src='../assets/images/cat-nyan-cat.gif' alt='user_profile_image'>
-          </div>
-          <div class='requests_username'>
-            <strong id='friend_list_username_placeholder'>". $result['username'] ."</strong>
-          </div>
         </div>
-      </div>";
+        <div class='requests_username'>
+            <strong id='friend_list_username_placeholder'>" . $result['username'] . "</strong>
+        </div>
+    </div>
+</div>";
 
     
     echo ($html);

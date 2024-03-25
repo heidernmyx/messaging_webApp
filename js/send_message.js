@@ -12,15 +12,16 @@ send_button.addEventListener("click", () =>{
 
   let message_content = document.querySelector('#input_message').value;
   
-
   let message_data= { 
+    conversation_id : conversation_id_selected,
     sender_id: user_id,
     // sender: username,
     // ! user_id of reciever
-    recipient_id: 6,
+    recipient_id: uid_ofSelected_convo,
     message_content: message_content,
     date: current_dateTime
   }
+  console.log(message_data);
   
   $.ajax({
     type: "post",

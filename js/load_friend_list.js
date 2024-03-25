@@ -20,16 +20,27 @@ $(document).ready(() => {
 });
 
 // ? contains selected friend's uid
-let conversation_selected;
+// todo: fetch the id of selected convo
+let uid_ofSelected_convo;
+let conversation_id_selected ;
+
+
+
 
 document.addEventListener('click', (event) => {
-  if (event.target.id === 'fetch_friend_data') {
-    console.log(true);
-    conversation_selected = event.target.getAttribute('data-fetch_friend_list_uid');
+  if (event.target.id.includes('fetch_friend_data')) {
+    button = event.target.id;
+    uid_ofSelected_convo = event.target.getAttribute('data-fetch_friend_list_uid');
     username = event.target.getAttribute('data-fetch_friend_list_uname');
+
+    // ? setValue = method dir(fetch_msgs)
+    setValue(event.target.dataset.fetch_friend_list_id_convo);
+    // conversation_selected_id = event.target.dataset.fetchFriendListIdConvo;
+    
     $('#friend_name_placeholder').html(username);
     // Add your additional functionality here
-    console.log('Conversation selected:', conversation_selected);
+    console.log('uid convo selected:', uid_ofSelected_convo);
+    console.log('convo id:',conversation_id_selected);
   }
 });
 

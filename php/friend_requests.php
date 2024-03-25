@@ -44,43 +44,69 @@ WHERE added_user = :user_session
 // TODO ACCEPT
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['choice'] == 'accept') {
   // * query for accepting request
-  $sql = "INSERT INTO tbl_contacts(
-      user_id,
-      friend_id)
+
+  // ? tbl_conversation as anchor
+  $sql = "INSERT INTO `tbl_conversation`(
+          user1_id,
+          user2_id
+      )
       VALUES(
-        :user_session,
-        :added_friend
-)";
+          :user_session,
+          :added_friend
+      )";
   $stmt = $conn->prepare($sql);
   $stmt->bindParam(':user_session', $_GET['session_id'], PDO::PARAM_INT);
   $stmt->bindParam(':added_friend', $_GET['request_user_id'], PDO::PARAM_INT);
+  $stmt->execute();
+
+  $conversation_id = $conn->lastInsertId();
+
+  // ? 2 insert into contacts for different users
+  $sql = "INSERT INTO `tbl_contacts`(
+          user_id,
+          friend_id,
+          conversation_id
+    )
+    VALUES(
+        :user_session,
+        :added_friend,
+        :conversation_id
+    )";
+  $stmt = $conn->prepare($sql);
+  $stmt->bindParam(':user_session', $_GET['session_id'], PDO::PARAM_INT);
+  $stmt->bindParam(':added_friend', $_GET['request_user_id'], PDO::PARAM_INT);
+  $stmt->bindParam(':conversation_id', $conversation_id, PDO::PARAM_INT);
   $stmt->execute();
 
   $sql = "INSERT INTO tbl_contacts(
     user_id,
-    friend_id)
+    friend_id,
+    conversation_id
+    )
     VALUES(
       :added_friend,
-      :user_session
+      :user_session,
+      :conversation_id
 )";
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':user_session', $_GET['session_id'], PDO::PARAM_INT);
 $stmt->bindParam(':added_friend', $_GET['request_user_id'], PDO::PARAM_INT);
+$stmt->bindParam(':conversation_id', $conversation_id, PDO::PARAM_INT);
 $stmt->execute();
 
 
-  $sql= "INSERT INTO tbl_conversation(
-    user1_id,
-    user2_id
-)
-VALUES(
-    :user_session,
-    :added_friend
-)";
-  $stmt = $conn->prepare($sql);
-  $stmt->bindParam(':user_session', $_GET['session_id'], PDO::PARAM_INT);
-  $stmt->bindParam(':added_friend', $_GET['request_user_id'], PDO::PARAM_INT);
-  $stmt->execute();
+//   $sql= "INSERT INTO tbl_conversation(
+//     user1_id,
+//     user2_id
+// )
+// VALUES(
+//     :user_session,
+//     :added_friend
+// )";
+//   $stmt = $conn->prepare($sql);
+//   $stmt->bindParam(':user_session', $_GET['session_id'], PDO::PARAM_INT);
+//   $stmt->bindParam(':added_friend', $_GET['request_user_id'], PDO::PARAM_INT);
+//   $stmt->execute();
 // * followed by delete of request on db
 
   $sql = "DELETE
