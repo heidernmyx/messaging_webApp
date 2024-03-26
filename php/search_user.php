@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
   WHERE
     `username` LIKE :search_input
     ";
-    
+     
   $stmt = $conn->prepare($sql);
   $stmt->bindParam(':search_input',$search_input, PDO::PARAM_STR);
   $stmt->execute();
