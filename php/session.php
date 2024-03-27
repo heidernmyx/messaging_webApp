@@ -10,6 +10,7 @@ if ($_SESSION['log_in']){
     "username" => $_SESSION['username'],
     "user_id" => $_SESSION['user_id'],
   );
+  $user_id = $_SESSION['user_id'];
   echo json_encode($session_data);
 }
 else{

@@ -1,31 +1,25 @@
-/* structure of a modal */
-/* .header_button_modal{
-  color: gainsboro;
+#unfriend_modal{
   display: none;
   position: fixed;
   z-index: 1;
-  left: 0;
   top: 0;
-  width: 100%;  
+  left: 0;
+  width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.4); 
-} */
-
-#request_modal_container{
-  height: 20vh;
-  padding: 8px 10px;
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-#request_modal_content{
-  height: 65vh;
+
+.unfriend_modal_content{
+  height: 73vh;
   width: 50vw;
   background-color: rgb(104, 104, 104);
   margin: 5% auto;
   padding: 8px;
   border-radius: 10px;
 }
-.close_request_modal{
+#close_unfriend_modal{
   color: #aaa;
   float: right;
   font-size: 30px;
@@ -33,8 +27,8 @@
   margin-right: 10px;
   /* transition: ; */
 }
-.close_request_modal:hover,
-.close_request_modal:focus {
+#close_unfriend_modal:hover,
+#close_unfriend_modal:focus {
   color: gainsboro;
   text-decoration: none;
   cursor: pointer;
@@ -46,14 +40,14 @@
   justify-content: center;
 }
 .modal_title{
+  color: gainsboro;
 }
-
-#requests{
+#unfriend{
   display: flex;
   justify-content: center;
   padding: 1vh;
 }
-#requests_container{
+#unfriend_container{
   display: flex;
   flex-direction: column;
   height: 45vh;
@@ -65,57 +59,40 @@
   overflow-y: auto;
   background-color: inherit;
 }
-#requests_container::-webkit-scrollbar{
+#unfriend_container::-webkit-scrollbar{
   width: 1vw;
 }
 
-#requests_container::-webkit-scrollbar-track,
-#requests_container::-webkit-scrollbar-thumb{
+#unfriend_container::-webkit-scrollbar-track,
+#unfriend_container::-webkit-scrollbar-thumb{
   border-top-right-radius: inherit;
   border-bottom-right-radius: inherit;
 }
 
-.dp_username_container{
-  height: 8vh;
-  display: flex;
-  align-items: center;
-  width: 25vw;
-}
-.requests_dp img{
+.friend_dp img{
   height: 6vh;
 }
 
-.accept_button_container{
+.unfriend_button_container{
   display: flex;
   align-items: center;
-  margin-left: 3vw;
+  margin-left: 5vw;
 }
 
-.accept_button_container button {
+.unfriend_button_container button {
   height: 6vh;
   width: 6vw;
   margin: 0px 0.5vw;
   border: none;
   outline: none;
   border-radius: 5px;
-  background-color: rgb(13, 199, 44);
+  background-color: rgba(199, 13, 13, 0.849);
   color: white;
   transition: filter 0.3s ease ;
 }
 
-.accept_button_container button:hover,
-.accept_button_container button:focus{
-  filter: brightness(125%);
+.unfriend_button_container button:hover,
+.unfriend_button_container button:focus{
+  filter: brightness(110%);
   cursor: pointer;
-}
-
-#decline_button{
-  height: 6vh;
-  width: 6vw;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  background-color: rgb(201, 13, 13);
-  color: white;
-  transition: filter 0.3s ease ;
 }

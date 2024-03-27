@@ -1,42 +1,24 @@
-// Get the modal
-var modal = document.getElementById("myModal");
+document.addEventListener("DOMContentLoaded", function() {
+  const container = document.getElementById('profile_and_username_container');
+  const popupMenu = document.getElementById('popup_menu');
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+  container.addEventListener('click', function(event) {
+    // Calculate popup menu position based on mouse click
+    const posX = event.clientX;
+    const posY = event.clientY + container.clientHeight;
 
-// When the user clicks the button, open the modal 
-modal.style.display = "block";
+    // Show popup menu at calculated position
+    popupMenu.style.display = 'block';
+    popupMenu.style.top = posY + 'px';
+    popupMenu.style.left = posX + 'px';
+  });
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-
-
-var searchField = document.getElementById('searchInput').addEventListener('focus', function() {
-  document.querySelector('#searchInput').placeholder = 'Search...';
-  document.querySelector('label').textContent = 'Find users';
+  // Close the popup menu when clicking outside of it
+  document.addEventListener('click', function(event) {
+    if (!popupMenu.contains(event.target) && event.target !== container) {
+      popupMenu.style.display = 'none';
+    }
+  });
 });
-document.getElementById('searchInput').addEventListener('blur', function() {
-let str = document.getElementById('searchInput').value;
-  if (isEmpty(str)) {
-      document.querySelector('label').style.display = 'inline-block';
-      document.querySelector('.label').textContent = '';
-      document.getElementById('searchInput').placeholder = '';
-      console.log('ni gana');
-  }
-console.log('wani gana');
 
-}
-);
-function isEmpty(str) {
-return str.trim() === "";
-}
+console.log('yawa');

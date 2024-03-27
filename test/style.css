@@ -1,37 +1,28 @@
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); 
-  /* Black w/ opacity */
+.popup-menu {
+  display: none;
+  position: absolute;
+  background-color: #333; /* Dark background color */
+  border: 1px solid #000;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+.popup-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.popup-menu ul li {
+  padding: 5px 0;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
+.popup-menu ul li a {
+  color: white;
   text-decoration: none;
-  cursor: pointer;
+}
+
+.popup-menu ul li a:hover {
+  background-color: #555; /* Darker color on hover */
 }

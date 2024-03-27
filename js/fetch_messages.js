@@ -1,21 +1,10 @@
+// if (conversation_id_selected == null){
+//   e
+// }
+
+
 // Define the function to fetch messages with a promise
-function fetchMessages(param) {
-  return new Promise((resolve, reject) => {
-    $.ajax({
-      type: "POST",
-      url: "../php/fetch_messages.php",
-      data: param,
-      success: (response) => {
-        $('#message_placements').html(response);
-        resolve(); // Resolve the promise when the AJAX request is successful
-      },
-      error: function(xhr, status, error) {
-        console.error(xhr.responseText);
-        reject(error); // Reject the promise if there's an error
-      }
-    });
-  });
-}
+
 
 // Define the initial empty object bond
 let bond = {};
@@ -33,7 +22,7 @@ function setValue(value) {
 function newValue(value) {
   console.log('selected conversation changed:', value);
   bond = {
-    ...bond, // Retain previous data
+    ...bond, 
     conversation_id: conversation_id_selected,
     sender_id: user_id,
     recipient_id: uid_ofSelected_convo
@@ -63,4 +52,24 @@ setInterval(() => {
     .catch((error) => {
       console.error('Error fetching messages:', error);
     });
-}, 5000); // 5000 milliseconds = 5 seconds
+}, 1000); // 5000 milliseconds = 5 seconds
+
+
+
+function fetchMessages(message_data) {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      type: "POST",
+      url: "../php/fetch_messages.php",
+      data: message_data,
+      success: (response) => {
+        $('#message_placements').html(response);
+        resolve(); // Resolve the promise when the AJAX request is successful
+      },
+      error: function(xhr, status, error) {
+        console.error(xhr.responseText);
+        reject(error); // Reject the promise if there's an error
+      }
+    });
+  });
+}

@@ -1,3 +1,16 @@
+<?php include('../check_session.php'); ?
+
+// Start session
+session_start();
+
+// Check if session exists
+if(!isset($_SESSION['user_id'])) {
+    // Redirect to login page
+    header("Location: ../index.html");
+    exit;
+}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +25,8 @@
 <link rel="stylesheet" href="../css/message_contents.css">
 <link rel="stylesheet" href="../css/addFriend_modal.css">
 <link rel="stylesheet" href="../css/requests_modal.css">
+<link rel="stylesheet" href="../css/unfriend_modal.css">
+<link rel="stylesheet" href="../css/pop_up.css">
 <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
@@ -23,10 +38,15 @@
 <script src="../js/friend_request.js" defer></script>
 <script src="../js/load_friend_list.js" defer></script>
 <script type="text/javascript" src="../js/fetch_messages.js" defer></script>
-
-
+<script src="../js/unfriend.js" defer></script>
+<script type="text/javascript" src="../js/pop_up.js" defer></script>
+<script type="text/javascript" src="../logout/logout.js" defer></script>
+<script type="text/javascript" src="../check_session/check_session.js"></script>
 </head>
 <body>
+  
+
+
   <div id="friends_column">
     <img src="" alt="image (supposed to be logo)">
     <div style="height: 10px;"></div>
@@ -74,10 +94,6 @@
             </div> -->
 
             
-
-
-            
-
           </div>
 
       </div>
@@ -107,6 +123,12 @@
             </div>
             <div id="username_placeholder"></div>
           </div>
+        </div>
+        <div id="popup_menu" class="popup_menu">
+          <ul>
+            <li><a id="user_profile" href="#">Profile</a></li>
+            <li><a id="logout" href="#">Logout</a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -208,12 +230,63 @@
   <!-- ! end -->
 
 
-  <!-- unfriend modal -->
-  <div class="unfriend_modal">
-    <div class="">
 
+
+
+
+  <!-- unfriend modal -->
+  <div id="unfriend_modal">
+    <!-- ? content or box --> 
+    <div class="unfriend_modal_content">
+      <span id="close_unfriend_modal">&times;</span>
+      <div class="modal_title_container">
+        <div class="modal_title">
+          <h2>Unfriend User</h2>
+        </div>
+      </div>
+      <div class="modal_input">
+        <div class="modal_input_container">
+          <input id="unfriend_search_input" class="" type="text" name="search_user_input" placeholder="Enter username...">
+          <button id="modal_unfriend_search_button" title="modal_search"><img src="../assets/images/search.png" alt=""></button>
+        </div>
+      </div>
+      <div id="unfriend">
+        <div id="unfriend_container">
+          <div id="friend_user_info">
+
+
+            <!-- <div class='dp_username_asRow' friend_id='.$result[''].'>
+              <div class='dp_username_container'>
+                <div class='friend_dp'>
+                  <img src='../assets/images/gwapo.jpg' alt='user_profile_image'>
+                </div>
+                <div class='friend_username'>
+                  <strong id='username_placeholder'>['nag kaon naka dol?']."</strong>
+                </div>
+              </div>
+              <div class='unfriend_button_container'>
+                <button id='unfriend_user' data-unfriend_user_id='[]' data-friend_username='asd'>Unfriend</button>
+              </div>
+            </div> -->
+
+
+
+
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

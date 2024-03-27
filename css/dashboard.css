@@ -128,6 +128,7 @@ hr, #friends_column, .header_buttons, #username_placeholder, #message_contents{
   background-color: rgba(13,16,23,205);
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .invert_colors{

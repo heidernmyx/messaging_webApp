@@ -1,0 +1,35 @@
+.popup_menu {
+  display: none;
+  position: fixed;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 9999; /* Ensure the popup is above other elements */
+}
+
+.popup_menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.popup_menu ul li {
+  padding: 5px 0;
+}
+
+.popup_menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.popup_menu ul li a:hover {
+  text-decoration: underline;
+}
+
+#profile_and_username_container #profile {
+  pointer-events: none; /* Disable pointer events on the image */
+}
+#username_placeholder{
+  pointer-events: none;
+}

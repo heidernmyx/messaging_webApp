@@ -2,20 +2,24 @@
 
 include "../include/connection.php";
 
+session_start();
+
 if ($_SERVER['REQUEST_METHOD'] == 'GET'){
   $search_input = '%' . $_GET['key'] . '%';
 
   // echo json_encode($search_input);
   $sql = "SELECT
-    `user_id`,
-    `username`
-  FROM
-      `tbl_accounts`
-  WHERE
-    `username` LIKE :search_input
-    ";
-     
+            `user_id`,
+            `username`
+        FROM
+            `tbl_accounts`
+        WHERE
+            `user_id` != :session_id AND
+            `username` LIKE :search_input";
+
+
   $stmt = $conn->prepare($sql);
+  $stmt->bindParam(':session_id', $_SESSION['user_id'], PDO::PARAM_INT);
   $stmt->bindParam(':search_input',$search_input, PDO::PARAM_STR);
   $stmt->execute();
 

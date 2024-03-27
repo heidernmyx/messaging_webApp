@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2024 at 04:32 AM
+-- Generation Time: Mar 25, 2024 at 07:13 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,7 +40,8 @@ CREATE TABLE `tbl_accounts` (
 
 INSERT INTO `tbl_accounts` (`user_id`, `username`, `password`, `email_address`) VALUES
 (1, 'admin', 'admin', 'admin@admin.com'),
-(2, 'asd', 'asd', 'asd@asd.com');
+(2, 'asd', 'asd', 'asd@asd.com'),
+(3, 'heidernmyx', 'montejo', 'hmontejo123@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -55,13 +56,6 @@ CREATE TABLE `tbl_add` (
   `time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `tbl_add`
---
-
-INSERT INTO `tbl_add` (`add_id`, `added_by`, `added_user`, `time`) VALUES
-(2, 2, 2, '2024-03-25 11:26:36');
-
 -- --------------------------------------------------------
 
 --
@@ -71,16 +65,19 @@ INSERT INTO `tbl_add` (`add_id`, `added_by`, `added_user`, `time`) VALUES
 CREATE TABLE `tbl_contacts` (
   `contact_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL COMMENT 'used as anchor to list its friends',
-  `friend_id` int(11) NOT NULL COMMENT 'user_id''s friend (basically another user''s id)'
+  `friend_id` int(11) NOT NULL COMMENT 'user_id''s friend (basically another user''s id)',
+  `conversation_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_contacts`
 --
 
-INSERT INTO `tbl_contacts` (`contact_id`, `user_id`, `friend_id`) VALUES
-(1, 2, 1),
-(2, 1, 2);
+INSERT INTO `tbl_contacts` (`contact_id`, `user_id`, `friend_id`, `conversation_id`) VALUES
+(5, 1, 2, 4),
+(6, 2, 1, 4),
+(7, 1, 3, 5),
+(8, 3, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -101,7 +98,8 @@ CREATE TABLE `tbl_conversation` (
 --
 
 INSERT INTO `tbl_conversation` (`conversation_id`, `user1_id`, `user2_id`, `last_message_id`, `created_at`) VALUES
-(1, 1, 2, NULL, '2024-03-25 03:27:01');
+(4, 1, 2, NULL, '2024-03-25 11:58:44'),
+(5, 1, 3, NULL, '2024-03-25 12:10:07');
 
 -- --------------------------------------------------------
 
@@ -117,6 +115,15 @@ CREATE TABLE `tbl_messages` (
   `message_content` varchar(255) NOT NULL,
   `time_sent` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_messages`
+--
+
+INSERT INTO `tbl_messages` (`message_id`, `conversation_id`, `sent_by`, `sent_to`, `message_content`, `time_sent`) VALUES
+(4, 5, 1, 3, 'asdas', '2024-03-26 01:03:51'),
+(5, 5, 3, 1, 'planned a future', '2024-03-26 02:05:48'),
+(6, 5, 1, 3, 'by myself', '2024-03-26 02:07:15');
 
 -- --------------------------------------------------------
 
@@ -162,7 +169,8 @@ ALTER TABLE `tbl_contacts`
   ADD PRIMARY KEY (`contact_id`),
   ADD KEY `contact_id` (`contact_id`,`user_id`,`friend_id`),
   ADD KEY `user_id` (`user_id`),
-  ADD KEY `friend_id` (`friend_id`);
+  ADD KEY `friend_id` (`friend_id`),
+  ADD KEY `conversation_id` (`conversation_id`);
 
 --
 -- Indexes for table `tbl_conversation`
@@ -196,7 +204,7 @@ ALTER TABLE `tbl_profile`
 -- AUTO_INCREMENT for table `tbl_accounts`
 --
 ALTER TABLE `tbl_accounts`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_add`
@@ -208,19 +216,19 @@ ALTER TABLE `tbl_add`
 -- AUTO_INCREMENT for table `tbl_contacts`
 --
 ALTER TABLE `tbl_contacts`
-  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_conversation`
 --
 ALTER TABLE `tbl_conversation`
-  MODIFY `conversation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `conversation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_messages`
 --
 ALTER TABLE `tbl_messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_profile`
@@ -244,7 +252,8 @@ ALTER TABLE `tbl_add`
 --
 ALTER TABLE `tbl_contacts`
   ADD CONSTRAINT `tbl_contacts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_accounts` (`user_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `tbl_contacts_ibfk_2` FOREIGN KEY (`friend_id`) REFERENCES `tbl_accounts` (`user_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `tbl_contacts_ibfk_2` FOREIGN KEY (`friend_id`) REFERENCES `tbl_accounts` (`user_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tbl_contacts_ibfk_3` FOREIGN KEY (`conversation_id`) REFERENCES `tbl_conversation` (`conversation_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `tbl_conversation`
@@ -257,9 +266,9 @@ ALTER TABLE `tbl_conversation`
 -- Constraints for table `tbl_messages`
 --
 ALTER TABLE `tbl_messages`
-  ADD CONSTRAINT `tbl_messages_ibfk_1` FOREIGN KEY (`conversation_id`) REFERENCES `tbl_conversation` (`conversation_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `tbl_messages_ibfk_2` FOREIGN KEY (`sent_by`) REFERENCES `tbl_accounts` (`user_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `tbl_messages_ibfk_3` FOREIGN KEY (`sent_to`) REFERENCES `tbl_accounts` (`user_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `tbl_messages_ibfk_1` FOREIGN KEY (`sent_by`) REFERENCES `tbl_accounts` (`user_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tbl_messages_ibfk_2` FOREIGN KEY (`sent_to`) REFERENCES `tbl_accounts` (`user_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tbl_messages_ibfk_3` FOREIGN KEY (`conversation_id`) REFERENCES `tbl_conversation` (`conversation_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `tbl_profile`

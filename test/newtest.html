@@ -1,73 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Input Title and Placeholder Example</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #f0f0f0;
-    }
-    .input-container {
-        position: relative;
-        width: 300px;
-    }
-    input {
-        width: calc(100% - 20px);
-        padding: 10px;
-        border: none;
-        border-bottom: 1px solid #ccc;
-        font-size: 16px;
-        outline: none;
-    }
-    input:focus {
-        border-bottom-color: dodgerblue;
-    }
-    label {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        font-size: 14px;
-        color: #888;
-        transition: top 0.3s, font-size 0.3s, color 0.3s;
-    }
-    input:focus + label, input:not(:placeholder-shown) + label {
-        top: -15px;
-        font-size: 12px;
-        color: #333;
-    }
-    .search-placeholder {
-        display: none;
-    }
-    input:focus + .search-placeholder {
-        display: inline-block;
-    }
-</style>
-</head>
-<body>
-    <div class="input-container">
-        <input type="text" id="searchInput" name="search" placeholder=" ">
-        <label id="searchLabel" for="searchInput">Find users</label>
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="../test/script.js" defer></script>
+    <link rel="stylesheet" href="../test/style.css">
+  </head>
+  <body>
+    <div id="profile_and_username_container">
+      <div id="container_asButton">
+        <div id="profile">
+          <img id="user_profile_img" src="../assets/images/ae86.gif" alt="">
+        </div>
+        <div id="username_placeholder">Username</div>
+      </div>
     </div>
-
-    <script>
-        document.getElementById('searchInput').addEventListener('focus', function() {
-            document.querySelector('.search-placeholder').style.display = 'none';
-            document.querySelector('label').textContent = 'Find users';
-        });
-        document.getElementById('searchInput').addEventListener('blur', function() {
-            if (this.value === '') {
-                document.querySelector('.search-placeholder').style.display = 'inline-block';
-                document.querySelector('label').textContent = '';
-            }
-        });
-    </script>
-</body>
+    
+    <!-- Add a popup menu with a list of options -->
+    <div id="popup_menu" class="popup-menu">
+      <ul>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </div>
+    
+  </body>
 </html>
