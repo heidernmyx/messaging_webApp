@@ -1,0 +1,64 @@
+.profile_modal{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+#profile_modal_container{
+  padding: 8px 10px;
+}
+#profile_modal_content{
+  height: 50vh;
+  width: 50vw;
+  background-color: rgb(104, 104, 104);
+  margin: 8% auto;
+  padding: 8px;
+  border-radius: 10px;
+}
+#profile_modal_close{
+  color: #aaa;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+  margin-right: 10px;
+  /* transition: ; */
+}
+#profile_modal_close:hover,
+#profile_modal_close:focus {
+  color: gainsboro;
+  text-decoration: none;
+  cursor: pointer;
+  filter: brightness(150%);
+}
+.profile_modal_title_container{
+  display: flex;
+  margin: 2vh 10vw;
+  justify-content: center;
+}
+.modal_title{
+}
+#profile_modal_center_containerP{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#profile_modal_userInfo_container{
+  width: 45vw;
+  height: 35vh;
+  margin: 3vh auto;
+  display: flex;
+  justify-content: center;
+  border: 3px solid grey;
+  /* border-radius: 20px;
+  box-shadow: inset 0px 0px 3px grey; */
+  padding: 8px 10px;
+
+  color: gainsboro;
+}

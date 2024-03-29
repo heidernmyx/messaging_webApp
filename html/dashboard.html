@@ -27,6 +27,8 @@ if(!isset($_SESSION['user_id'])) {
 <link rel="stylesheet" href="../css/requests_modal.css">
 <link rel="stylesheet" href="../css/unfriend_modal.css">
 <link rel="stylesheet" href="../css/pop_up.css">
+<link rel="stylesheet" href="../profile_modal/profile_modal.css">
+<link rel="stylesheet" href="../ellipsis/hidden_panel.css">
 <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
@@ -42,6 +44,8 @@ if(!isset($_SESSION['user_id'])) {
 <script type="text/javascript" src="../js/pop_up.js" defer></script>
 <script type="text/javascript" src="../logout/logout.js" defer></script>
 <script type="text/javascript" src="../check_session/check_session.js"></script>
+<script type="text/javascript" src="../profile_modal/session_profile.js" defer></script>
+<script type="text/javascript" src="../ellipsis/additional_user_function.js" defer></script>
 </head>
 <body>
   
@@ -126,7 +130,7 @@ if(!isset($_SESSION['user_id'])) {
         </div>
         <div id="popup_menu" class="popup_menu">
           <ul>
-            <li><a id="user_profile" href="#">Profile</a></li>
+            <li><a id="modal_profile_user" href="#">Profile</a></li>
             <li><a id="logout" href="#">Logout</a></li>
           </ul>
         </div>
@@ -255,24 +259,6 @@ if(!isset($_SESSION['user_id'])) {
           <div id="friend_user_info">
 
 
-            <!-- <div class='dp_username_asRow' friend_id='.$result[''].'>
-              <div class='dp_username_container'>
-                <div class='friend_dp'>
-                  <img src='../assets/images/gwapo.jpg' alt='user_profile_image'>
-                </div>
-                <div class='friend_username'>
-                  <strong id='username_placeholder'>['nag kaon naka dol?']."</strong>
-                </div>
-              </div>
-              <div class='unfriend_button_container'>
-                <button id='unfriend_user' data-unfriend_user_id='[]' data-friend_username='asd'>Unfriend</button>
-              </div>
-            </div> -->
-
-
-
-
-
           </div>
         </div>
       </div>
@@ -281,9 +267,34 @@ if(!isset($_SESSION['user_id'])) {
 
 
 
+  <div class="profile_modal">
+    <div id="profile_modal_container">
+      <div id="profile_modal_content">
+        <span id="profile_modal_close">&times;</span>
+        <div class="profile_modal_title_container">
+          <div class="modal_title">
+            <h2>Profile</h2>
+          </div>
+        </div>
+        <div id="profile_modal_userInfo_container">
+          <div>asd</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-
+  <div id="hidden_panel" class="show">
+    <div id="hidden_panel_content">
+      <div id="hidden_panel_container">
+        <div id="hidden_panel_title_container">
+          <div id="hidden_panel_title">
+            <h2>Title</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
