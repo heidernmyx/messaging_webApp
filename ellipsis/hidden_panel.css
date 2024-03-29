@@ -1,5 +1,5 @@
 #hidden_panel {
-  display: none;
+  /* display: none; */
   position: fixed;
   top: 0;
   right: 0;
@@ -15,7 +15,7 @@
 
 #hidden_panel_content{
   position: fixed;
-  right: -440;
+  right: 0px;
   top: 10vh;
   height: 80vh;
   width: 30vw;
@@ -23,26 +23,61 @@
   background-color: rgb(107, 107, 107);
   border: 1px solid gainsboro;
   border-radius: 20px;
-  transition: right 0.3s ease;
+  transition: right 0.3s ease-in-out;
 }
-
-
-/* .hide {
-  right: -250px; 
-} */
 
 #ellipsis {
   pointer-events: none;
 }
-/* 
-#hidden_panel.hide {
-  right: -250px; 
-} */
-
 
 #hidden_panel_container{
+  padding: 2vh;
+}
+#hidden_panel_title_container{
   display: flex;
   justify-content: center;
-  padding: 4vh;
+}
+#hidden_panel_image_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 17vh;
+  width: 10vw;
+  margin: 3vh auto;
+  margin-bottom: unset;
+}
+#hidden_panel_image{
+}
+#hidden_panel_image img{
+  height: 16vh;
+  width: 7.9vw;
+  border-radius: 50%;
+}
+#circle{
+  position: relative;
+  bottom: 24px;
+  left: 78px;
+  height: 15px;
+  width: 15px;
+  background-color: rgb(0, 182, 0);
+  z-index: 1;
+  border-radius: 50%;
+}
+#hidde_panel_friend_name_placeholder{
+  display: flex;
+  justify-content: center;
+  height: 5vh;
+  width: 15vw;
+  margin: 0px auto;
 }
 
+#hidden_panel_tbl_container_asRow{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 3vh;
+  padding: 10px;
+  text-align: left;
+}
+#hidden_panel_table_container_left, #hidden_panel_table_container_right{
+  
+}

@@ -1,4 +1,4 @@
-<?php include('../check_session.php'); ?
+<!-- <?php include('../check_session.php'); ?
 
 // Start session
 session_start();
@@ -8,7 +8,7 @@ if(!isset($_SESSION['user_id'])) {
     // Redirect to login page
     header("Location: ../index.html");
     exit;
-}
+} -->
 
 
 <!DOCTYPE html>
@@ -83,20 +83,6 @@ if(!isset($_SESSION['user_id'])) {
       <div id="friend_list_container">
 
           <div class="friend_list_user_asRow">
-            
-
-
-            <!-- <div class='_asButton' fetch_friend_list_uname=''>
-              <div class='friend_list_dp_username_container'>
-                <div class='friend_list_profileImg'>
-                  <img src='../assets/images/cat-nyan-cat.gif' alt='user_profile_image'>
-                </div>
-                <div class='requests_username'>
-                  <strong id='friend_list_username_placeholder'>wad</strong>
-                </div>
-              </div>
-            </div> -->
-
             
           </div>
 
@@ -210,21 +196,6 @@ if(!isset($_SESSION['user_id'])) {
           <div id="requests_container">
             <div id="request_user_info">
 
-              <!-- <div class="dp_username_asRow" add_id=''>
-                <div class="dp_username_container">
-                  <div class='requests_dp'>
-                    <img src='../assets/images/gwapo.jpg' alt='user_profile_image'>
-                  </div>
-                  <div class='requests_username'>
-                    <strong id='username_placeholder'>".$result['username']."</strong>
-                  </div>
-                </div>
-                <div class='accept_button_container'>
-                  <button id='accept_button' id_ofUser_request=''>Accept</button>
-                  <button id='decline_button' decline_request=''>Decline</button>
-                </div>
-              </div><hr> -->
-
             </div>
           </div>
         </div>
@@ -232,11 +203,6 @@ if(!isset($_SESSION['user_id'])) {
     </div>
   </div>
   <!-- ! end -->
-
-
-
-
-
 
   <!-- unfriend modal -->
   <div id="unfriend_modal">
@@ -283,7 +249,6 @@ if(!isset($_SESSION['user_id'])) {
     </div>
   </div>
 
-
   <div id="hidden_panel" class="show">
     <div id="hidden_panel_content">
       <div id="hidden_panel_container">
@@ -292,6 +257,43 @@ if(!isset($_SESSION['user_id'])) {
             <h2>Title</h2>
           </div>
         </div>
+        <div id="hidden_panel_image_container">
+          <div id="hidden_panel_image">
+            <img src="../assets/images/gwapo.jpg" alt="image">
+            <div id="circle"></div>
+          </div>
+        </div>
+        <div id="hidde_panel_friend_name_placeholder">
+          <h3>friend name</h3>
+        </div>
+        <div id="hidden_panel_tbl_container_asRow">
+          <div id="hidden_panel_table_container_left">
+            <table class="hidden_panel_table" style="border: 1px solid black;">
+              <tr>
+                <th>Unique ID:</th>
+                <td>0123</td>
+              </tr>
+              <tr>
+                <th>Status</th>
+                <td>online</td>
+              </tr>
+            </table>
+          </div>
+  
+          <div id="hidden_panel_table_container_right">
+            <table class="hidden_panel_table">
+              <tr>
+                <th>Gender</th>
+                <td>male</td>
+              </tr>
+              <tr>
+                <th>Joined</th>
+                <td>11/11/1111</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+          
       </div>
     </div>
   </div>
