@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2024 at 07:13 PM
+-- Generation Time: Mar 30, 2024 at 08:27 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -41,7 +41,9 @@ CREATE TABLE `tbl_accounts` (
 INSERT INTO `tbl_accounts` (`user_id`, `username`, `password`, `email_address`) VALUES
 (1, 'admin', 'admin', 'admin@admin.com'),
 (2, 'asd', 'asd', 'asd@asd.com'),
-(3, 'heidernmyx', 'montejo', 'hmontejo123@gmail.com');
+(3, 'heidernmyx', 'montejo', 'hmontejo123@gmail.com'),
+(4, 'christianXanadyl', '123123', 'test@gmail.com'),
+(5, 'test', 'test', 'testa@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -55,6 +57,14 @@ CREATE TABLE `tbl_add` (
   `added_user` int(11) NOT NULL,
   `time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_add`
+--
+
+INSERT INTO `tbl_add` (`add_id`, `added_by`, `added_user`, `time`) VALUES
+(7, 4, 1, '2024-03-27 21:02:49'),
+(8, 4, 2, '2024-03-27 21:02:51');
 
 -- --------------------------------------------------------
 
@@ -74,10 +84,12 @@ CREATE TABLE `tbl_contacts` (
 --
 
 INSERT INTO `tbl_contacts` (`contact_id`, `user_id`, `friend_id`, `conversation_id`) VALUES
-(5, 1, 2, 4),
-(6, 2, 1, 4),
-(7, 1, 3, 5),
-(8, 3, 1, 5);
+(11, 4, 1, 7),
+(12, 1, 4, 7),
+(15, 3, 4, 9),
+(16, 4, 3, 9),
+(17, 3, 5, 10),
+(18, 5, 3, 10);
 
 -- --------------------------------------------------------
 
@@ -99,7 +111,12 @@ CREATE TABLE `tbl_conversation` (
 
 INSERT INTO `tbl_conversation` (`conversation_id`, `user1_id`, `user2_id`, `last_message_id`, `created_at`) VALUES
 (4, 1, 2, NULL, '2024-03-25 11:58:44'),
-(5, 1, 3, NULL, '2024-03-25 12:10:07');
+(5, 1, 3, NULL, '2024-03-25 12:10:07'),
+(6, 2, 1, NULL, '2024-03-27 08:26:31'),
+(7, 4, 1, NULL, '2024-03-27 11:57:42'),
+(8, 3, 1, NULL, '2024-03-27 13:03:24'),
+(9, 3, 4, NULL, '2024-03-27 13:03:26'),
+(10, 3, 5, NULL, '2024-03-28 15:15:39');
 
 -- --------------------------------------------------------
 
@@ -121,9 +138,25 @@ CREATE TABLE `tbl_messages` (
 --
 
 INSERT INTO `tbl_messages` (`message_id`, `conversation_id`, `sent_by`, `sent_to`, `message_content`, `time_sent`) VALUES
-(4, 5, 1, 3, 'asdas', '2024-03-26 01:03:51'),
-(5, 5, 3, 1, 'planned a future', '2024-03-26 02:05:48'),
-(6, 5, 1, 3, 'by myself', '2024-03-26 02:07:15');
+(16, 7, 4, 1, 'yo', '2024-03-27 20:00:22'),
+(17, 7, 1, 4, 'ayo', '2024-03-27 20:00:34'),
+(18, 7, 1, 4, 'test', '2024-03-27 20:00:40'),
+(19, 7, 4, 1, 'niig', '2024-03-27 20:03:38'),
+(20, 7, 4, 1, 'kanang koan', '2024-03-27 20:03:46'),
+(21, 7, 4, 1, '', '2024-03-27 20:03:48'),
+(22, 7, 4, 1, 'nars tabang', '2024-03-27 20:04:27'),
+(23, 7, 1, 4, '', '2024-03-27 20:26:31'),
+(24, 7, 1, 4, 'asdsad', '2024-03-27 20:27:20'),
+(25, 7, 1, 4, 'asd', '2024-03-27 20:28:33'),
+(26, 7, 1, 4, 'hallu', '2024-03-27 20:51:39'),
+(27, 7, 1, 4, 'hallu', '2024-03-27 20:52:20'),
+(28, 7, 1, 4, 'nars tabang', '2024-03-27 20:52:24'),
+(29, 7, 1, 4, 'oyoyo', '2024-03-27 21:01:07'),
+(30, 7, 4, 1, 'ayaw gaw', '2024-03-27 21:01:40'),
+(31, 8, 3, 1, 'hello', '2024-03-27 21:03:57'),
+(32, 8, 1, 3, 'HI!!', '2024-03-27 21:04:32'),
+(33, 7, 1, 4, 'asd', '2024-03-28 21:52:43'),
+(34, 10, 3, 5, 'yoyooo', '2024-03-28 23:15:48');
 
 -- --------------------------------------------------------
 
@@ -204,31 +237,31 @@ ALTER TABLE `tbl_profile`
 -- AUTO_INCREMENT for table `tbl_accounts`
 --
 ALTER TABLE `tbl_accounts`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_add`
 --
 ALTER TABLE `tbl_add`
-  MODIFY `add_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `add_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_contacts`
 --
 ALTER TABLE `tbl_contacts`
-  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tbl_conversation`
 --
 ALTER TABLE `tbl_conversation`
-  MODIFY `conversation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `conversation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_messages`
 --
 ALTER TABLE `tbl_messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `tbl_profile`

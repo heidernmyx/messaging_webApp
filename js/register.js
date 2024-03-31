@@ -32,7 +32,7 @@ $(document).ready(function() {
           prompt(response);
           return;
         }
-        else{
+        else if (response === "Username and Email are available for registration!"){
           $('.modal').css({
             'display': 'block'
           }),

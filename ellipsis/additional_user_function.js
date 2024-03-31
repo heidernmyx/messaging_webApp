@@ -1,11 +1,17 @@
-$(document).ready(function() {
+
+// make the panel appear
   $('#floating_container').click(function() {
-    $('#hidden_panel').css({'display': 'inline-block'});
-    setTimeout(() => {
-      $('#hidden_panel_content').css({'right': '27px'});
-    }, 100);
+    if(conversation_id_selected !== undefined) {
+      $('#hidden_panel').css({'display': 'inline-block'});
+      setTimeout(() => {
+        $('#hidden_panel_content').css({'right': '27px'});
+      }, 100);
+    }
+    else{
+      alert('No conversation selected');
+    }
   });
-});
+
 
 
 $('#hidden_panel').click((event) =>{

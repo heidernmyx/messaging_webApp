@@ -268,7 +268,7 @@ if(!isset($_SESSION['user_id'])) {
         </div>
         <div id="hidden_panel_tbl_container_asRow">
           <div id="hidden_panel_table_container_left">
-            <table class="hidden_panel_table" style="border: 1px solid black;">
+            <table class="hidden_panel_table">
               <tr>
                 <th>Unique ID:</th>
                 <td>0123</td>
@@ -293,12 +293,20 @@ if(!isset($_SESSION['user_id'])) {
             </table>
           </div>
         </div>
-          
+        <div id="hidden_panel_friend_bio_container">
+          <label for="friend_bio">
+            <h5>Bio</h5>
+          </label>
+          <div id="hidden_pannel_center_bio">
+            <textarea name="" id="friend_bio" cols="35" rows="4"></textarea>
+          </div>
+          <span style="background-color: red;">
+            <button>Block this user?</button>
+          </span>
+        </div>
       </div>
     </div>
   </div>
-
-
 
 
 </body>

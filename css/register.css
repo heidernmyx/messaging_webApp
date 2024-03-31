@@ -168,6 +168,9 @@ a:hover {
   height: 50%;
   border-radius: 10px;
 }
+.modal_content h3, p{
+  font-family: 'Open Sans';
+}
 
 .close_button{
   color: #aaa;

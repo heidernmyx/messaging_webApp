@@ -11,6 +11,7 @@
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
   color: gainsboro;
+  overflow: auto;
 }
 
 #hidden_panel_content{
@@ -80,4 +81,31 @@
 }
 #hidden_panel_table_container_left, #hidden_panel_table_container_right{
   
+}
+#hidden_panel_friend_bio_container label{
+  display: flex;
+  padding-top: 1vh;
+  padding-left: 27px;
+  font-size: 18px;
+  cursor: text;
+}
+#hidden_pannel_center_bio{
+  display: flex;
+  justify-content: center;
+}
+#hidden_panel_friend_bio_container textarea{
+  margin: 0px auto;
+  padding: 8px 10px;
+  color: gainsboro;
+  font-size: 16px;
+  font-family: 'Open Sans';
+  font-style: italic;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 0px;
+  border: none;
+  outline: none;
+  background-color: rgb(119, 119, 119);
+  pointer-events: none;
 }
