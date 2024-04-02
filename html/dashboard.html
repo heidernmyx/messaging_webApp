@@ -252,11 +252,11 @@ if(!isset($_SESSION['user_id'])) {
   <div id="hidden_panel" class="show">
     <div id="hidden_panel_content">
       <div id="hidden_panel_container">
-        <div id="hidden_panel_title_container">
+        <!-- <div id="hidden_panel_title_container">
           <div id="hidden_panel_title">
             <h2>Title</h2>
           </div>
-        </div>
+        </div> -->
         <div id="hidden_panel_image_container">
           <div id="hidden_panel_image">
             <img src="../assets/images/gwapo.jpg" alt="image">
@@ -300,9 +300,15 @@ if(!isset($_SESSION['user_id'])) {
           <div id="hidden_pannel_center_bio">
             <textarea name="" id="friend_bio" cols="35" rows="4"></textarea>
           </div>
-          <span style="background-color: red;">
-            <button>Block this user?</button>
-          </span>
+          <div class="hidden_panel_options">
+            <img src="../assets/images/forbidden.png" alt="block image">
+            <button>Block user</button>
+          </div>
+          <div class="hidden_panel_options">
+            <img src="../assets/images/exclamation_mark.png" alt="">
+            <button>Report user</button>
+          </div>
+          
         </div>
       </div>
     </div>

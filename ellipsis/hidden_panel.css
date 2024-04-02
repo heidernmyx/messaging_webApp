@@ -25,6 +25,7 @@
   border: 1px solid gainsboro;
   border-radius: 20px;
   transition: right 0.3s ease-in-out;
+  overflow-y: auto;
 }
 
 #ellipsis {
@@ -34,10 +35,10 @@
 #hidden_panel_container{
   padding: 2vh;
 }
-#hidden_panel_title_container{
+/* #hidden_panel_title_container{
   display: flex;
   justify-content: center;
-}
+} */
 #hidden_panel_image_container{
   display: flex;
   justify-content: center;
@@ -50,8 +51,8 @@
 #hidden_panel_image{
 }
 #hidden_panel_image img{
-  height: 16vh;
-  width: 7.9vw;
+  height: 17vh;
+  width: 7.7vw;
   border-radius: 50%;
 }
 #circle{
@@ -95,6 +96,7 @@
 }
 #hidden_panel_friend_bio_container textarea{
   margin: 0px auto;
+  margin-bottom: 1vh;
   padding: 8px 10px;
   color: gainsboro;
   font-size: 16px;
@@ -108,4 +110,32 @@
   outline: none;
   background-color: rgb(119, 119, 119);
   pointer-events: none;
+}
+
+.hidden_panel_options{
+  display: flex;
+  align-items: center;
+  margin: 0.5vh 1.8vw;
+  padding: 8px 10px;
+  background-color: inherit;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: filter 0.3s ease;
+
+}
+.hidden_panel_options button{
+  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.1);;
+  border: none;
+  outline: none;
+  color: gainsboro;
+}
+.hidden_panel_options:hover, .hidden_panel_options:focus{
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hidden_panel_options img{
+  margin-right: 10px;
+  height: 3.4vh;
+  background-color: transparent;
+  mix-blend-mode: multiply;
 }
